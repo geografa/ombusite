@@ -1,0 +1,129 @@
+@import "bootstrap/less/bootstrap.less";
+@import "bootstrap/less/responsive.less";
+
+@bg1: red;
+@bg2: white;
+@orange: #F15A57;
+@blue: #4c5daa;
+@white: #fff;
+@black: #333;
+
+html, body, .container-fluid { height: 100% }
+
+body {
+    padding-bottom: 200px;
+}
+
+.container-fluid {
+    padding: 0;
+}
+
+.sidebar-nav {
+    padding: 9px 0;
+}
+
+.navbar {
+    .logo {
+        position: absolute;
+        top: -55px;
+        left: 50px;
+        box-shadow: 2px 2px 3px rgba(0,0,0,0.5);
+    }
+}
+
+h1 {
+}
+
+.hero-unit {
+    background-color: transparent;
+    border-radius: none;
+    margin-bottom: 2em;
+    padding: 0 2em;
+    min-height: 8em;
+    h1 {
+        font-size: 300%;
+    }
+}
+.slide {
+    -moz-box-sizing: border-box;
+    padding: 5em 0 0 2em;
+    height: 100%;
+    position: relative;
+    box-shadow: 0px -1px 2px rgba(0,0,0, 0.8);
+}
+
+
+#home {
+    background-image: url(../i/photo-bg-1.jpg);
+    background-size: 100%;
+
+    h1, p {
+        margin: 1em 0 1em 1em;
+        padding: 0.5em 1em 0.5em 1em;
+        border-radius: 4px;
+        color: @white;
+    }
+
+    h1 {
+        background-color: @orange;
+        right: 5%;
+        bottom: 15%;
+        position: absolute;
+    }
+
+    p {
+        font-size: 150%;
+        background-color: @blue;
+        right: 5%;
+        bottom: 5%;
+        position: absolute;
+    }
+}
+
+#work {
+    background-color: @bg2;
+}
+
+#skill {
+    background-color: @black;
+    color: @white;
+}
+
+#team {
+    background-color: @bg2;
+}
+
+#contact {
+    background-image: url(../i/omcc.jpg);
+    background-size: 100%;
+
+    .hero-unit {
+        h1 {
+            background-color: rgba(255,255,255,0.8);
+            font-size: 2.5em;
+            padding: 0.5em 1em;
+            border-radius: 5px;
+            float: right;
+            color: @blue;
+        }
+    }
+    .address {
+        margin-top: 70px;
+        font-size: 250%;
+        line-height: 150%;
+        letter-spacing: 2px;
+        text-align: right;
+        text-transform: uppercase;
+        font-weight: bold;
+        color: lighten(#dac49f, 15%);
+        -moz-transform: rotate(-5deg);
+        font-family: 'Wallpoet', cursive;
+    }
+    .map {
+        margin: 20px 5px 5px 0;
+        border: 4px solid @white;
+        border-radius: 4px;
+        box-shadow: 4px 4px 4px rgba(0,0,0,.5);
+        float: right;
+    }
+}
