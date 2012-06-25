@@ -11,3 +11,4 @@ THEME = 'theme'
 PATH = 'src'
 STATIC_PATHS = ['images']
 LESS_GENERATOR = True
+FEED = None

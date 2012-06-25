@@ -1,0 +1,89 @@
+{% macro member(name, bio, photo='evan-lovely.jpg') %}
+<div class="row-fluid">
+    <div class="span5">
+        <img src="{{ SITEURL }}/theme/img/{{ photo }}" width="100%">
+    </div>
+    <div class="span7">
+        <h2>{{ name }}</h2>
+        {{ bio }}
+    </div>
+</div>
+{%- endmacro %}
+
+<div id="team" class="slide">
+
+    <div class="row-fluid">
+        <div class="span2"></div>
+        <div class="span10 hero-unit">
+            <h1>The Team</h1>
+            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus,
+            tellus ac cursus commodo, tortor mauris condimentum nibh, ut
+            fermentum massa justo sit amet risus. Etiam porta sem malesuada
+            magna mollis euismod. Donec sed odio dui. </p>
+        </div>
+    </div>
+
+    <div class="row-fluid">
+        <div class="span4">
+            {{ member(
+                name = 'Martin Rio',
+                photo = 'martin-rio.jpg',
+                bio= """<p>Foo Donec id elit non mi porta gravida at eget metus.
+                Fusce dapibus, tellus ac cursus commodo, tortor mauris
+                condimentum nibh, ut fermentum massa justo sit amet risus. Etiam
+                porta sem malesuada magna mollis euismod. Donec sed odio dui.
+                </p>"""
+            ) }}
+
+            {{ member(
+                name = 'Jonathan Glick',
+                bio= """<p>Foo Donec id elit non mi porta gravida at eget metus.
+                Fusce dapibus, tellus ac cursus commodo, tortor mauris
+                condimentum nibh, ut fermentum massa justo sit amet risus. Etiam
+                porta sem malesuada magna mollis euismod. Donec sed odio dui.
+                </p>"""
+            ) }}
+        </div><!--/span-->
+        <div class="span4">
+            {{ member(
+                name = 'Jon Duell',
+                bio= """<p>Foo Donec id elit non mi porta gravida at eget metus.
+                Fusce dapibus, tellus ac cursus commodo, tortor mauris
+                condimentum nibh, ut fermentum massa justo sit amet risus. Etiam
+                porta sem malesuada magna mollis euismod. Donec sed odio dui.
+                </p>"""
+            ) }}
+
+            {{ member(
+                name = 'Evan Lovely',
+                bio= """<p>Foo Donec id elit non mi porta gravida at eget metus.
+                Fusce dapibus, tellus ac cursus commodo, tortor mauris
+                condimentum nibh, ut fermentum massa justo sit amet risus. Etiam
+                porta sem malesuada magna mollis euismod. Donec sed odio dui.
+                </p>"""
+            ) }}
+        </div><!--/span-->
+
+        <div class="span4">
+            {{ member(
+                name = 'Anna Chapman',
+                bio= """<p>Foo Donec id elit non mi porta gravida at eget metus.
+                Fusce dapibus, tellus ac cursus commodo, tortor mauris
+                condimentum nibh, ut fermentum massa justo sit amet risus. Etiam
+                porta sem malesuada magna mollis euismod. Donec sed odio dui.
+                </p>"""
+            ) }}
+
+            {{ member(
+                name = 'Rafa Gutierrez',
+                bio= """<p>Foo Donec id elit non mi porta gravida at eget metus.
+                Fusce dapibus, tellus ac cursus commodo, tortor mauris
+                condimentum nibh, ut fermentum massa justo sit amet risus. Etiam
+                porta sem malesuada magna mollis euismod. Donec sed odio dui.
+                </p>"""
+            ) }}
+        </div><!--/span-->
+
+    </div> <!-- .row-fluid -->
+
+</div><!--.slide -->

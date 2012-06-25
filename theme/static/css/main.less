@@ -1,12 +1,25 @@
 @import "../../../lib/bootstrap/less/bootstrap.less";
-@import "../../../lib/bootstrap/less/responsive.less";
+@import "../../../lib/bootstrap/less//responsive.less";
 
+// Vars
 @bg1: red;
 @bg2: white;
 @orange: #F15A57;
 @blue: #4c5daa;
 @white: #fff;
 @black: #333;
+
+// Fonts
+@font-face {
+    font-family: 'KnowYourProductRegular';
+    src: url('../font/know_your_product-webfont.eot');
+    src: url('../font/know_your_product-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/know_your_product-webfont.woff') format('woff'),
+         url('../font/know_your_product-webfont.ttf') format('truetype'),
+         url('../font/know_your_product-webfont.svg#KnowYourProductRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
 
 html, body, .container-fluid { height: 100% }
 
@@ -29,9 +42,23 @@ body {
         left: 50px;
         box-shadow: 2px 2px 3px rgba(0,0,0,0.5);
     }
+    .nav {
+        margin-left: 3em;
+        & > li > a {
+            color: @white;
+            font-family: 'Lucida Grande';
+            font-weight: bold;
+            text-shadow: rgba(0,0,0,0.5) -1px 0, rgba(0,0,0,0.3) 0 -1px,
+            rgba(255,255,255,0.5) 0 1px, rgba(0,0,0,0.3) -1px -2px;
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 1px;
+        }
+    }
 }
 
-h1 {
+.navbar-inner {
+    background: url(../img/wood-grain.jpg) repeat-x;
 }
 
 .hero-unit {
@@ -45,7 +72,7 @@ h1 {
     }
 }
 .slide {
-    -moz-box-sizing: border-box;
+    .box-sizing(border-box);
     padding: 5em 0 0 2em;
     height: 100%;
     position: relative;
@@ -54,7 +81,7 @@ h1 {
 
 
 #home {
-    background-image: url(../i/photo-bg-1.jpg);
+    background-image: url(../img/photo-bg-1.jpg);
     background-size: 100%;
 
     h1, p {
@@ -94,7 +121,7 @@ h1 {
 }
 
 #contact {
-    background-image: url(../i/omcc.jpg);
+    background-image: url(../img/omcc.jpg);
     background-size: 100%;
 
     .hero-unit {
@@ -109,15 +136,19 @@ h1 {
     }
     .address {
         margin-top: 70px;
-        font-size: 250%;
+        margin-left: 170px;
+        font-size: 200%;
         line-height: 150%;
         letter-spacing: 2px;
-        text-align: right;
+        text-align: center;
         text-transform: uppercase;
-        font-weight: bold;
-        color: lighten(#dac49f, 15%);
-        -moz-transform: rotate(-5deg);
-        font-family: 'Wallpoet', cursive;
+        color: fade(darken(#dac49f, 50%), 40%);
+        .rotate(-4deg);
+        font-family: 'KnowYourProductRegular', cursive;
+        .ombu {
+            color: fade(darken(@orange, 30%), 40%);
+            display: block; 
+        }
     }
     .map {
         margin: 20px 5px 5px 0;

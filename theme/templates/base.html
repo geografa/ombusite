@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ DEFAULT_LANG }}">
-<head>
+    <head>
         {% block head %}
         <meta charset="utf-8" />
         <title>{{ SITENAME }}</title>
@@ -23,34 +23,52 @@
         <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ SITEURL }}theme/ico/apple-touch-icon-114-precomposed.png">
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ SITEURL }}theme/ico/apple-touch-icon-72-precomposed.png">
         <link rel="apple-touch-icon-precomposed" href="{{ SITEURL }}theme/ico/apple-touch-icon-57-precomposed.png">
-        
-</head>
 
-<body id="index" class="home">
-        <header id="banner" class="body">
-                <h1><a href="{{ SITEURL }}">{{ SITENAME }} <strong>{{ SITESUBTITLE }}</strong></a></h1>
-        </header><!-- /#banner -->
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="row-fluid">
+                    <div class="span2">
+                        <img width="170px" alt="{{ SITENAME }}" class="logo" src="{{ SITEURL }}/theme/img/OMBU_logo.png">
+                    </div>
+                    <div class="span10">
+                        <div class="nav-collapse">
+                            <ul class="nav">
+                                <li class="active"><a href="#home">Home</a></li>
+                                <li><a href="#work">Our Work</a></li>
+                                <li><a href="#skill">Our Skills</a></li>
+                                <li><a href="#team">Our Team</a></li>
+                                <li><a href="#contact">Contact Us</a></li>
+                                {% for title, link in MENUITEMS %}
+                                <li><a href="{{ link }}">{{ title }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div><!--/.nav-collapse -->
+                    </div><!-- /.span10 -->
+                </div>
+            </div>
+        </div>
         <nav id="menu"><ul>
-        {% for title, link in MENUITEMS %}
-            <li><a href="{{ link }}">{{ title }}</a></li>
-        {% endfor %}
-        {% if DISPLAY_PAGES_ON_MENU %}
-          {% for p in PAGES %}
-            <li{% if p == page %} class="active"{% endif %}><a href="{{ SITEURL }}/pages/{{ p.url }}">{{ p.title }}</a></li>
-          {% endfor %}
-        {% else %}
-          {% for cat, null in categories %}
-            <li{% if cat == category %} class="active"{% endif %}><a href="{{ SITEURL }}/category/{{ cat }}.html">{{ cat }}</a></li>
-          {% endfor %}
-        {% endif %}
         </ul></nav><!-- /#menu -->
-        {% block content %}
+
+        <div class="container-fluid">
+        {% block content %}{% endblock %}
+        </div><!--/.fluid-container-->
+
+        {% block js %}
+        <script src="{{ SITEURL }}/theme/js/jquery-1.7.2.min.js"></script>
+        <script>
+            jQuery(document).ready(function($) {
+                $(".nav a").click(function(event){
+                    event.preventDefault();
+                    $('html,body').animate({scrollTop:$(this.hash).offset().top}, 500);
+                });
+            });
+        </script>
         {% endblock %}
-        <footer id="contentinfo" class="body">
-                <address id="about" class="vcard body">
-                Proudly powered by <a href="http://docs.notmyidea.org/alexis/pelican/">pelican</a>,
-                and obviously <a href="http://python.org">python</a>!
-                </address><!-- /#about -->
-        </footer><!-- /#contentinfo -->
-</body>
+
+    </body>
 </html>
