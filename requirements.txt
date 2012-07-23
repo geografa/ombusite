@@ -1,1 +1,2 @@
 -e git://github.com/ametaireau/pelican.git@e89b32511d8a8bfdb7cb08705c3f87732507a36c#egg=pelican-dev
+markdown
