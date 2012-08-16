@@ -3,7 +3,7 @@
 
 AUTHOR = u"Martin Rio"
 SITENAME = u"OMBU: Web Development in Portland, Oregon"
-SITEURL = ''
+SITEURL = 'http://ombuweb.com'
 TIMEZONE = 'US/Pacific'
 DEFAULT_LANG='en'
 DEFAULT_PAGINATION = False
