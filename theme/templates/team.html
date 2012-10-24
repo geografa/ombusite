@@ -2,12 +2,12 @@
 <div class="row-fluid">
     <!--
     <div class="span5">
-        <img src="{{ SITEURL }}/theme/img/{{ photo }}" width="100%">
     </div>
     -->
     <div class="span12">
         <h2>{{ name }}</h2>
-        {{ bio }}
+        <img src="{{ SITEURL }}/theme/img/{{ photo }}" width="100%">
+        <div class="bio"> {{ bio }} </div>
     </div>
 </div>
 {%- endmacro %}
@@ -21,8 +21,7 @@
                 <h1>The Team</h1>
                 <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus,
                 tellus ac cursus commodo, tortor mauris condimentum nibh, ut
-                fermentum massa justo sit amet risus. Etiam porta sem malesuada
-                magna mollis euismod. Donec sed odio dui. </p>
+                fermentum massa justo sit amet risus.</p>
             </div>
         </div>
     </div>

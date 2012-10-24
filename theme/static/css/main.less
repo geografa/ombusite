@@ -1,5 +1,5 @@
 /**
- * Boostrap: Selectively import what's needed
+ * Boostrap: Only import what's needed
  */
 //@import "../../../lib/bootstrap/less/bootstrap.less";
 //@import "../../../lib/bootstrap/less/bootstrap.less";
@@ -27,24 +27,24 @@
 
 // Colors
 @red: hsl(2, 60%, 56%);
-@bg2: @red;
-@bg3: hsl(32, 100%, 40%); 
-@orange: @bg2; 
-@blue: hsl(209, 37%, 33%);
+@orange: hsl(32, 100%, 40%);
+@blue: hsl(209, 37%, 36%);
 @white: #fff;
 @black: #333;
 @gray: hsl(18, 7%, 38%);
 @grayLight: hsl(23, 12%, 87%);
 @yellow: #FFF257;
+@bg2: @red;
 
 // Other vars
 @font-family: 'OpenSans';
 @font-family-light: 'OpenSans-Light';
+@radius: 4px;
 
 // Bootstrap variable overrides
 @navbarLinkBackgroundActive: transparent;
 @navbarLinkColorActive: @orange;
-
+@linkColor: @blue;
 
 // Fonts
 @font-face {
@@ -60,6 +60,8 @@
 
 html, body, .container-fluid { height: 100% }
 
+
+/* Absolute typography on the body elements. Relative units after that. */
 body {
     font-family: 'OpenSans';
     font-size: 13px;
@@ -74,10 +76,12 @@ h1, h2, h3 {
         font-size: 60%;
         color: darken(@grayLight, 50%);
     }
-}-
+}
+
 h2 {
     font-size: 1.6em;
 }
+
 h3 {
     font-size: 1.4em;
 }
@@ -120,8 +124,6 @@ p {
             color: @gray;
             font-weight: bold;
             text-shadow: none;
-            // text-shadow: rgba(0,0,0,0.5) -1px 0, rgba(0,0,0,0.3) 0 -1px,
-            // rgba(255,255,255,0.5) 0 1px, rgba(0,0,0,0.3) -1px -2px;
             text-transform: uppercase;
             font-size: 1.1em;
             letter-spacing: 1px;
@@ -139,29 +141,19 @@ p {
 
 .hero-unit {
     border-radius: none;
-    margin-left: 27px;
-    padding-top: 3em;
-    padding-bottom: 2em;
-    min-height: 8em;
+    padding: 2em 0 0 0;
+    p.lead {
+        margin-top: 2em;
+    }
 }
 
 .pane {
     .box-sizing(border-box);
     min-height: 100%;
     position: relative;
-    // box-shadow: 0px -1px 2px rgba(0,0,0, 0.8);
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: cover;
-    .hero-unit {
-        margin-left: 0;
-        margin-right: 0;
-        padding-left: 0;
-        padding-right: 0;
-        p.lead {
-            margin-top: 2em;
-        }
-    }
 }
 
 
@@ -171,41 +163,61 @@ p {
     h1, p {
         margin: 1em 0 1em 1em;
         padding: 0.5em 1em 0.5em 1em;
-        border-radius: 4px;
+        border-radius: @radius;
         color: @white;
+        position: absolute;
+        right: 5%;
     }
 
     h1 {
-        background-color: @orange;
-        right: 5%;
+        background-color: @red;
         bottom: 15%;
-        position: absolute;
     }
 
     p {
         font-size: 150%;
         background-color: @blue;
-        right: 5%;
         bottom: 5%;
-        position: absolute;
     }
 }
 
 #work {
+    // box-sizing: border-box;
+    padding: 0 2em;
     background-color: @grayLight;
+    img {
+        border-radius: @radius;
+        .box-shadow(2px 2px 9px rgba(0,0,0,0.5));
+    }
 }
 
 #skill {
+    a {
+        color: @white;
+    }
+    .nav > li:not(.active) > a:hover {
+        color: @blue;
+    }
     font-family: @font-family-light;
-    background-color: @bg2;
+    background-color: @red;
     color: @white;
 }
 
 #team {
     font-family: @font-family-light;
-    background-color: @blue;
-    color: fade(@white, 90%);
+    // background-color: @blue;
+    // color: fade(@white, 90%);
     height: auto;
+    h2 {
+        font-size: 130%;
+    }
+    img {
+        .border-radius(@radius);
+        max-width: 200px;
+    }
+    .bio {
+        display: none;
+    }
 }
 
 #contact {
@@ -216,7 +228,7 @@ p {
             background-color: rgba(255,255,255,0.8);
             font-size: 2.5em;
             padding: 0.5em 1em;
-            border-radius: 5px;
+            border-radius: @radius;
             float: right;
             color: @blue;
         }
@@ -241,7 +253,7 @@ p {
         width: 80%;
         margin: 0 10% 0 5%;
         border: 4px solid @white;
-        border-radius: 4px;
+        border-radius: @radius;
         box-shadow: 4px 4px 4px rgba(0,0,0,.5);
     }
 }
