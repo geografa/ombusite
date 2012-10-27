@@ -1,29 +1,72 @@
+{% macro project(title, description, features) %}
+<div class="project">
+    
+    <div class="span7">
+
+        <div class="carousel carousel-fade slide">
+            <div class="carousel-inner">
+                {% for f in features %}
+                <div class="{{ loop.index }} item {{ 'active' if loop.index == 1 }}">
+                    <img src="theme/img/{{ f.image }}" /> 
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+    </div>
+
+    <div class="span5">
+
+        <h2>{{ title }}</h2>
+
+        {{ description }}
+
+        <h3>Higlights</h3>
+
+        <ul class="highlights">
+            {% for f in features %}
+            <li>
+                <a href="#" class="{{ 'active' if loop.index == 1 }}">
+                    {{ f.caption }}
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+</div>
+{%- endmacro %}
+
 <div id="work" class="pane">
 
     <div class="row-fluid">
         <div class="hero-unit span10 offset2">
             <div class="">
                 <h1>The Work.
-                <small>Some our recent projects:</small></h1>
+                <small>Some recent projects:</small></h1>
 
                 <ul class="nav nav-pills">
-                    <li class="active"><a href="#">Ankrom Moisan</a></li>
-                    <li><a href="#">Paramount Pictures</a></li>
-                    <li><a href="#">Stand for Children</a></li>
+                    <li class="active">
+                        <a data-toggle="tab" href="#amaa">Ankrom Moisan</a>
+                    </li>
+                    <li>
+                        <a data-toggle="tab" href="#paramount">Paramount</a>
+                    </li>
+                    <li>
+                        <a data-toggle="tab" href="#stand">Stand for
+                            Children</a>
+                    </li>
                 </ul>
             </div>
         </div>
     </div><!-- /.row-fluid -->
 
     <div class="row-fluid">
-        <div class="span7">
-            <img src="theme/img/stand.png" /> 
-        </div>
-        <div class="span5">
 
-            <h2>Stand For Children</h2>
-
-            <p> Cras interdum condimentum turpis. Aenean nec pede vitae
+        <div id="amaa" class="tab active"> 
+            {{ project(
+            title='Ankron Moisan Architects',
+            description='<p> Cras interdum condimentum turpis. Aenean nec pede vitae
             velit convallis tempor. Nullam purus ante, feugiat eget,
             faucibus nec, volutpat at, ipsum. Morbi suscipit venenatis
             magna. Suspendisse potenti. Aenean ut eros. Nullam eget sem.
@@ -32,27 +75,75 @@
             iaculis, eros. In porttitor dolor vitae dolor. Nullam
             vulputate faucibus ligula. Aenean consequat pede quis
             lectus. Fusce id orci. Nam pharetra. Cras nec nunc.
-            </p>
-
-            <h3>Higlights</h3>
-
-            <ul>
-                <li>
-                    A <strong>Drupal</strong>, multi-site platorm.
-                </li>
-                <li>
-                    <strong>Multilingual</strong>
-                </li>
-                <li>
-                    Deep integration with <strong>Salesforce</strong>.
-                </li>
-                <li>
-                    Cras at pede feugiat neque placerat imperdiet.
-                    Morbi ullamcorper. Vivamus metus quam, mollis non, consequat
-                    eu, bibendum et, eros.
-                </li>
-            </ul>
-
+            </p>',
+            features=[
+                {
+                'caption':'An Grid-based Fluid Layout',
+                'image':'amaa-1.png',
+                },
+                {
+                'caption':'High Quality Imagery',
+                'image':'amaa-2.png',
+                },
+            ])
+            }}
         </div>
+
+        <div id="paramount" class="tab"> 
+            {{ project(
+            title='Paramount Pictures',
+            description='<p> Cras interdum condimentum turpis. Aenean nec pede vitae
+            velit convallis tempor. Nullam purus ante, feugiat eget,
+            faucibus nec, volutpat at, ipsum. Morbi suscipit venenatis
+            magna. Suspendisse potenti. Aenean ut eros. Nullam eget sem.
+            Sed in libero a eros dapibus varius. Aenean nisi. Sed a
+            justo. Morbi lacus elit, accumsan vel, euismod ac, aliquam
+            iaculis, eros. In porttitor dolor vitae dolor. Nullam
+            vulputate faucibus ligula. Aenean consequat pede quis
+            lectus. Fusce id orci. Nam pharetra. Cras nec nunc.
+            </p>',
+            features=[
+                {
+                'caption':'Mobile-friendly frontend in HTML5',
+                'image':'pmount-1.png',
+                },
+                {
+                'caption':'Live-search movie grid',
+                'image':'pmount-2.png',
+                },
+                {
+                'caption':'Social, HTML5 video',
+                'image':'pmount-3.png',
+                },
+            ])
+            }} 
+        </div>
+
+        <div id="stand" class="tab"> 
+            {{ project(
+            title='Stand For Children',
+            description='<p> Cras interdum condimentum turpis. Aenean nec pede vitae
+            velit convallis tempor. Nullam purus ante, feugiat eget,
+            faucibus nec, volutpat at, ipsum. Morbi suscipit venenatis
+            magna. Suspendisse potenti. Aenean ut eros. Nullam eget sem.
+            Sed in libero a eros dapibus varius. Aenean nisi. Sed a
+            justo. Morbi lacus elit, accumsan vel, euismod ac, aliquam
+            iaculis, eros. In porttitor dolor vitae dolor. Nullam
+            vulputate faucibus ligula. Aenean consequat pede quis
+            lectus. Fusce id orci. Nam pharetra. Cras nec nunc.
+            </p>',
+            features=[
+                {
+                'caption':'A Drupal Multi-site Platform',
+                'image':'stand-1.png',
+                },
+                {
+                'caption':'Woot',
+                'image':'stand-2.png',
+                },
+            ])
+            }}
+        </div>
+
     </div><!-- /.row-fluid -->
 </div><!-- /.pane -->
