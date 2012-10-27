@@ -44,7 +44,7 @@
 
 // Bootstrap variable overrides
 @navbarLinkBackgroundActive: transparent;
-@navbarLinkColorActive: @orange;
+@navbarLinkColorActive: @red;
 @linkColor: @blue;
 
 // Fonts
@@ -154,7 +154,7 @@ p {
             font-size: 1.1em;
             letter-spacing: 1px;
             &:hover, &:active {
-                color: @orange;
+                color: @navbarLinkColorActive;
             }
         }
     }
@@ -188,6 +188,9 @@ p {
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: cover;
+    h1 {
+        margin-top: 1.2em;
+    }
 }
 
 
@@ -216,9 +219,8 @@ p {
 }
 
 #work {
-    // box-sizing: border-box;
     padding: 0 2em;
-    background-color: @grayLight;
+    background: url(../img/grey.png);
     .slide {
         border-radius: @radius;
         .box-shadow(2px 2px 9px rgba(0,0,0,0.5));
