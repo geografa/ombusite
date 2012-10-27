@@ -24,11 +24,11 @@
 
     </head>
 
-    <body data-spy="scroll">
+    <body data-spy="scroll" data-target='#main-nav'>
 
         <img id="logo" alt="{{ SITENAME }}" src="{{ SITEURL }}/theme/img/OMBU_logo.png">
 
-        <div class="navbar navbar-fixed-top">
+        <div id="main-nav" class="navbar navbar-fixed-top">
             <div class="navbar-inner">
                 <div class="row-fluid">
                     <div class="span10 offset2">
@@ -55,10 +55,10 @@
         <script
             src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
         <!-- <script src="{{ SITEURL }}/theme/js/jquery-1.7.2.min.js"></script> -->
-        <!-- <script src="{{ SITEURL }}/theme/js/bootstrap-scrollspy.js"></script> -->
         <script src="{{ SITEURL }}/theme/js/bootstrap-tab.js"></script>
         <script src="{{ SITEURL }}/theme/js/bootstrap-carousel.js"></script>
         <script src="{{ SITEURL }}/theme/js/bootstrap-transition.js"></script>
+        <script src="{{ SITEURL }}/theme/js/bootstrap-scrollspy.js"></script>
         <script src="{{ SITEURL }}/theme/js/ombusite.js"></script>
         {% endblock %}
 
