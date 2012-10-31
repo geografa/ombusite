@@ -27,19 +27,20 @@ jQuery(document).ready(function($) {
     });
 
     // Scroll panes when clicking on nav items
-    $('.nav a').click(function(event) {
+    $('#main-nav a').click(function(event) {
         event.preventDefault();
-        $('html,body').animate({scrollTop:$(this.hash).offset()
-            .top});
+        $('html,body').animate({scrollTop: $(this.hash).offset().top});
         window.location.hash = this.hash;
     });
 
     // Start carousels
     $('.carousel').carousel({interval: false});
-    $('.project .highlights').on('click', 'li', function(e) {
+    $('.project .nav-stacked').on('click', 'li', function(e) {
         var $th, c;
         e.preventDefault();
         $th = $(this);
+        $th.siblings().removeClass('active');
+        $th.addClass('active');
         c = $th.parents('.project').find('.carousel');
         c.data('carousel').to($th.index());
     });

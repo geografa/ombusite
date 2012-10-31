@@ -1,6 +1,5 @@
 {% macro project(title, description, features) %}
 <div class="project">
-    
     <div class="span7">
 
         <div class="carousel carousel-fade slide">
@@ -23,12 +22,10 @@
 
         <h3>Higlights</h3>
 
-        <ul class="highlights">
+        <ul class="nav nav-pills nav-stacked">
             {% for f in features %}
-            <li>
-                <a href="#" class="{{ 'active' if loop.index == 1 }}">
-                    {{ f.caption }}
-                </a>
+            <li class="{{ 'active' if loop.index == 1 }}">
+                <a href="#">{{ f.caption }}</a>
             </li>
             {% endfor %}
         </ul>
@@ -40,24 +37,23 @@
 <div id="work" class="pane">
 
     <div class="row-fluid">
-        <div class="hero-unit span10 offset2">
-            <div class="">
-                <h1>The Work.
-                <small>Some recent projects:</small></h1>
-
-                <ul class="nav nav-pills">
-                    <li class="active">
-                        <a data-toggle="tab" href="#amaa">Ankrom Moisan</a>
-                    </li>
-                    <li>
-                        <a data-toggle="tab" href="#paramount">Paramount</a>
-                    </li>
-                    <li>
-                        <a data-toggle="tab" href="#stand">Stand for
-                            Children</a>
-                    </li>
-                </ul>
-            </div>
+        <div class="hero-unit span5 offset2">
+            <h1>The Work.
+            <small>Some recent projects:</small></h1>
+        </div>
+        <div class="span5">
+            <ul class="projects nav nav-pills">
+                <li class="active">
+                    <a data-toggle="tab" href="#amaa">Ankrom Moisan</a>
+                </li>
+                <li>
+                    <a data-toggle="tab" href="#paramount">Paramount</a>
+                </li>
+                <li>
+                    <a data-toggle="tab" href="#stand">Stand for
+                        Children</a>
+                </li>
+            </ul>
         </div>
     </div><!-- /.row-fluid -->
 
