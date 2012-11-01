@@ -1,9 +1,6 @@
 /**
  * Boostrap: Only import what's needed
  */
-//@import "../../../lib/bootstrap/less/bootstrap.less";
-//@import "../../../lib/bootstrap/less/bootstrap.less";
-@bootstrap-root: "../../../lib/bootstrap/less";
 // CSS Reset
 @import "../../../lib/bootstrap/less/reset.less";
 
@@ -18,13 +15,13 @@
 
 // Base CSS
 @import "../../../lib/bootstrap/less/type.less";
-@import "../../../lib/bootstrap/less/forms.less";
+// @import "../../../lib/bootstrap/less/forms.less";
 
 // Components: Nav
 @import "../../../lib/bootstrap/less/navs.less";
 @import "../../../lib/bootstrap/less/navbar.less";
 @import "../../../lib/bootstrap/less/carousel.less";
-@import "../../../lib/bootstrap/less/responsive.less";
+// @import "../../../lib/bootstrap/less/responsive.less";
 
 // Colors
 @red: hsl(2, 60%, 56%);
@@ -41,6 +38,8 @@
 @fontFamily: 'OpenSansRegular', Arial, sans;
 @fontFamilyLight: 'OpenSansLight', Arial, sans;
 @radius: 4px;
+@padding-left: 2em; /* padding from the left of the viewport for certain
+                       elements such as logo */
 
 // Bootstrap variable overrides
 @navbarLinkBackgroundActive: transparent;
@@ -137,25 +136,31 @@ p {
     z-index: @zindexFixedNavbar + 1;
     position: fixed;
     top: -50px;
-    left: 15px;
+    left: @padding-left;
     width: 13%;
     max-width: 140px;
     min-width: 90px;
     box-shadow: 2px 2px 3px rgba(0,0,0,0.5);
 }
 
-.navbar {
-    .nav {
-        & > li > a {
+#main-nav .nav {
+    & > li {
+        > a {
             color: @gray;
             font-weight: bold;
             text-shadow: none;
             text-transform: uppercase;
-            font-size: 1.1em;
+            font-size: 0.9em;
             letter-spacing: 1px;
             &:hover, &:active {
                 color: @navbarLinkColorActive;
             }
+            &:hover, &:active {
+                color: @blue;
+            }
+        }
+        &.active {
+            a, a:hover, a:active { .box-shadow(none); }
         }
     }
 }
@@ -222,7 +227,7 @@ p {
 }
 
 #work {
-    padding: 0 2em;
+    padding: 0 @padding-left;
     background: url(../img/grey.png);
     .slide {
         border-radius: @radius;
@@ -244,19 +249,53 @@ p {
 }
 
 #team {
-    font-family: @fontFamily;
-    // background-color: @blue;
-    // color: fade(@white, 90%);
     height: auto;
-    h2 {
-        font-size: 130%;
+    background: url(../img/wood-grain.jpg) repeat;
+    > .row-fluid:first-child {
+        color: @white;
+        font-family: @fontFamilyLight;
     }
-    img {
-        .border-radius(@radius);
-        max-width: 200px;
+    .team-members {
+        border-top: 0.5em solid @blue;
+        border-bottom: 0.5em solid @blue;
+        background-color: hsl(0, 0%, 0%);
+        max-width: 1500px;
+        margin: 0 auto;
+    }
+    .team-member {
+        position: relative;
+        float: left;
+        width: 33.3%;
+        height: 250px;
+        overflow: hidden;
+        &:nth-of-type(3n+1) {
+            clear:left;
+            width: 33.4%;
+        }
     }
     .bio {
-        display: none;
+        .box-sizing(border-box);
+        .transition(height .2s ease-in);
+        background-color: hsla(0,0%,0%,0.6);
+        padding: 0 10%;
+        width: 100%;
+        height: 0px;
+        overflow: hidden;
+        color: @white;
+        position: absolute;
+        top: 0;
+        left: 0;
+        h3 {
+            border-bottom: 1px solid @blue;
+            font-size: 1.2em;
+        }
+        h4 {
+            text-transform: uppercase;
+            font-size: 1em;
+        }
+    }
+    .team-member:hover .bio {
+        height: 100%;
     }
 }
 

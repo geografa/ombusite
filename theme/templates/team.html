@@ -1,13 +1,14 @@
-{% macro member(name, bio, photo='evan-lovely.jpg') %}
-<div class="row-fluid">
-    <!--
-    <div class="span5">
+{% macro member(name, title, bio, photos) %}
+<div class="team-member">
+    <div class="photos">
+        {# {% for photo in photos %} #}
+        <img src="{{ SITEURL }}/theme/img/team/{{ photos.0 }}" width="100%">
+        {# {% endfor %} #}
     </div>
-    -->
-    <div class="span12">
-        <h2>{{ name }}</h2>
-        <img src="{{ SITEURL }}/theme/img/{{ photo }}" width="100%">
-        <div class="bio"> {{ bio }} </div>
+    <div class="bio">
+        <h3>{{ name }}</h3>
+        <h4>{{ title }}</h4>
+        {{ bio }}
     </div>
 </div>
 {%- endmacro %}
@@ -25,96 +26,56 @@
             </div>
         </div>
     </div>
-
-    <div class="row-fluid">
-        <div class="span4">
+    <div class="row-fluid team-members">
             {{ member(
                 name = 'Martin Rio',
-                photo = 'martin-rio.jpg',
-                bio= """<p>Martin is a seasoned Web architect and team lead. His
-                focus is on helping organizations make the most accurate and
-                cost-effective technical decisions, then bringing together the
-                best team to make projects happen on time, on budget, and in
-                close alignment to business objectives. Martin’s clients include
-                Paramount Pictures, Nike, and Portland State University. Martin
-                founded OMBU in 2008 where he serves as the lead of technical
-                strategy and development. He lives in NE Portland with his
-                girlfriend, Erica, their dogs, Sophie and Marley, and cat,
-                Julius.</p>"""
+                title = 'Principal',
+                photos = ['mr-1.jpg'],
+                bio= """<p>Web architect and team lead.<br>Problem Solver<br>Pet
+                Wrangler</p>"""
             ) }}
-        </div>
-        <div class="span4">
             {{ member(
                 name = 'Jonathan Glick',
-                bio= """<p> Jon has been constructing websites since the heyday
-                of Netscape Navigator and table- based layouts. Since then, his
-                work on projects ranging from web applications to widget
-                development has given him a balanced knowledge of both client
-                and server-side technologies. His current development focus has
-                been on using the Drupal framework to create everything from
-                basic blogs to large community sites. When not working in front
-                of a computer, Jon enjoys playing the guitar and embraces any
-                excuse to get out into nature.</p>"""
+                title = 'Senior Developer',
+                photos = ['jg-1.jpg'],
+                bio= """<p>Web architect and team lead.<br>Problem Solver<br>Pet
+                Wrangler</p>"""
             ) }}
-        </div>
-        <div class="span4">
             {{ member(
                 name = 'Jon Duell',
-                bio= """<p> Jon has over a decade of experience developing and
-                managing a variety of websites and Web applications. He
-                specializes in the LAMP (Linux Apache MySQL PHP) development web
-                stack, with a focus on the excellent Drupal Open Source CMS. Jon
-                loves the power, flexibility, and community that Drupal
-                provides, and is an avid contributor to the project. When not
-                working on websites, Jon enjoys swing- dancing, games of any
-                sort, and partaking in the gastronomical delights of the
-                Northwest. He also is embarking on the whirlwind journey of
-                being a father. </p>"""
+                title = 'Senior Developer',
+                photos = ['jd-1.jpg'],
+                bio= """<p>Web architect and team lead.<br>Problem Solver<br>Pet
+                Wrangler</p>"""
             ) }}
-        </div>
-    </div>
-    <div class="row-fluid">
-        <div class="span4">
             {{ member(
                 name = 'Anna Chapman',
-                bio= """<p> Anna has an inherent ability to balance
-                communication with developers, designers, and clients in order
-                to effectively meet deadlines and keep the team on track. Her
-                love of technology has pushed her to test the limits of her
-                technical understanding, which has blossomed into a deep
-                appreciation of IA, UX, and Quality Assurance testing. When not
-                managing the team or trying to improve communication techniques,
-                Anna is exploring the Portland foodie scene and working on her
-                dance moves. </p>"""
+                title = 'Project Manager',
+                photos = ['ac-1.jpg'],
+                bio= """<p>Web architect and team lead.<br>Problem Solver<br>Pet
+                Wrangler</p>"""
             ) }}
-        </div>
-        <div class="span4">
             {{ member(
                 name = 'Evan Lovely',
-                bio= """<p> Evan has been involved and interested in technology
-                ever since he was allowed to plug something into a wall. Today
-                his specialty is taking design comps to rock solid HTML, CSS,
-                JavaScript. Aware of emerging trends, CSS3 and HTML5 techniques
-                are implemented in forward thinking ways while also providing
-                alternate means to similar experiences in less able browsers.
-                When not pushing pixels, Evan balances out by hiking hills and
-                snowboarding mountains when he’s outside, practicing and
-                teaching yoga while he’s inside, and taking pictures of pretty
-                things everywhere he goes.</p>"""
+                title = 'Front-End Developer',
+                photos = ['el-1.jpg'],
+                bio= """<p>Web architect and team lead.<br>Problem Solver<br>Pet
+                Wrangler</p>"""
             ) }}
-        </div>
-        <div class="span4">
             {{ member(
                 name = 'Rafa Gutierrez',
-                bio= """<p> Rafa Gutierrez is a Web and Mapping Developer. His
-                expertise is focused on basic site configuration and support,
-                web map applications, and geographic information systems (GIS).
-                Rafa’s past projects include work with the Seasteading
-                Institute, DKS, Stoel Rives, Pike Energy, and Inter-Fluve. Rafa
-                lives in NE Portland, OR and raises goats with his two boys,
-                Enzo and Hugo. </p>"""
+                title = 'Junior Developer',
+                photos = ['rg-1.jpg'],
+                bio= """<p>Web architect and team lead.<br>Problem Solver<br>Pet
+                Wrangler</p>"""
             ) }}
-        </div><!--/span-->
+            {{ member(
+                name = 'You',
+                title = 'Current Opportunities',
+                photos = ['you.jpg'],
+                bio= """<p>Lead UX and front-end developer<br>Backend
+                Develoepr</p>"""
+            ) }}
     </div> <!-- .row-fluid -->
 
 </div><!--.pane -->
