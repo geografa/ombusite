@@ -15,6 +15,11 @@ function closestToTop() {
 
 jQuery(document).ready(function($) {
 
+    // Lazy image loading
+    $('img.lazy').lazyload({effect: 'fadeIn'});
+    $(window).on('slid', function(e) { $(window).resize(); });
+    $('a[data-toggle="tab"]').on('shown', function(e) { $(window).resize(); });
+
     // Center closest pane after ms of no resizing
     var id, ms = 500;
     $(window).resize(function() {
@@ -29,12 +34,24 @@ jQuery(document).ready(function($) {
     // Scroll panes when clicking on nav items
     $('#main-nav a').click(function(event) {
         event.preventDefault();
-        $('html,body').animate({scrollTop: $(this.hash).offset().top});
-        window.location.hash = this.hash;
+        var x = $(this.hash).offset().top;
+        var hash = this.hash;
+        $('html,body').animate(
+            {
+                scrollTop: x
+            },
+            {
+            complete: function() {
+                window.location.hash = hash;
+            }
+        });
     });
 
     // Start carousels
-    $('.carousel').carousel({interval: false});
+    $('.carousel').carousel({
+        interval: false
+    });
+
     $('.project .nav-stacked').on('click', 'li', function(e) {
         var $th, c;
         e.preventDefault();
