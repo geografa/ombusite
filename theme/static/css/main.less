@@ -72,19 +72,7 @@
 
 }
 
-@font-face {
-    font-family: 'KnowYourProductRegular';
-    src: url('../font/know_your_product-webfont.eot');
-    src: url('../font/know_your_product-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../font/know_your_product-webfont.woff') format('woff'),
-         url('../font/know_your_product-webfont.ttf') format('truetype'),
-         url('../font/know_your_product-webfont.svg#KnowYourProductRegular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-
 html, body, .container-fluid { height: 100% }
-
 
 /* Absolute typography on the body elements. Relative units after that. */
 body {
@@ -302,7 +290,8 @@ p {
 }
 
 #contact {
-    background-image: url(../img/omcc.jpg);
+    position: relative;
+    background: url(../img/omcc.jpg);
 
     .hero-unit {
         h1 {
@@ -315,16 +304,13 @@ p {
         }
     }
     .address {
-        margin-top: 70px;
-        margin-left: 170px;
-        font-size: 200%;
-        line-height: 150%;
-        letter-spacing: 2px;
-        text-align: center;
-        text-transform: uppercase;
-        color: fade(darken(#dac49f, 50%), 40%);
-        .rotate(-4deg);
-        font-family: 'KnowYourProductRegular', cursive;
+        .box-shadow(-3px 0px 9px hsla(0, 0%, 0%, 0.3));
+        position: absolute;
+        right: 0;
+        height: 100%;
+        background-color: @blue;
+        padding: 2em 3em;
+        color: @white;
         .ombu {
             color: fade(darken(@orange, 30%), 40%);
             display: block; 
