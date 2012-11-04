@@ -11,7 +11,7 @@
         {% endblock head %}
 
         {% assets filters="less,cssmin", output="css/main.min.css", "css/main.less" %}
-            <link rel="stylesheet" href="{{ ASSET_URL }}">
+            <link rel="stylesheet" href="{{ ASSET_URL | cdn }}">
         {% endassets %}
 
         <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -29,7 +29,7 @@
 
     <body data-spy="scroll" data-target='#main-nav'>
 
-        <img id="logo" alt="{{ SITENAME }}" src="{{ SITEURL }}/theme/img/OMBU_logo.png">
+        <img id="logo" alt="{{ SITENAME }}" src="{{ 'theme/img/OMBU_logo.png' | cdn }}">
 
         <div id="main-nav" class="navbar navbar-fixed-top">
             <div class="navbar-inner">
@@ -62,7 +62,7 @@
             "js/bootstrap-tab.js", "js/bootstrap-carousel.js",
             "js/bootstrap-transition.js",
             "js/bootstrap-scrollspy.js",  "js/ombusite.js" %}
-            <script src="{{ ASSET_URL }}"></script>
+            <script src="{{ ASSET_URL | cdn }}"></script>
         {% endassets %}
 
         {% endblock %}
