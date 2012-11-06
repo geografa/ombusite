@@ -1,9 +1,12 @@
 <div id="contact" class="row-fluid pane">
     <div class="row-fluid">
         <div class="offest6 span6 address">
+
             <h1>Contact Information</h1>
 
-            <p itemscope itemtype="http://data-vocabulary.org/Organization">
+            <div class="row-fluid">
+
+            <div class="span6" itemscope itemtype="http://data-vocabulary.org/Organization">
                 <h2 itemprop="name">OMBU</h2>
                 <address itemprop="address" itemscope
                     itemtype="http://data-vocabulary.org/Address">
@@ -11,19 +14,24 @@
                     <span itemprop="locality">Portland,</span> <span itemprop="region">OR</span> 97214</span><br>
                     Phone: <abbr itemprop="tel">(503) 298-4888</abbr>
                 </address>
-            </p>
-            <a class="btn" href="#">Directions »</a>
-            <img class="map" src="{{ 'theme/img/map.png' | cdn }}">
-        
-            <hr>
+                <a class="btn" href="#">Directions »</a>
+            </div><!-- /.span6 -->
 
-            <h2>New Business Inquiries contact</h2>
-            <p itemscope itemtype="http://data-vocabulary.org/Person">
-                <span itemprop="name">Martin Rio</span>, 
-                <span itemprop="title">Principal</span> at 
-                <span itemprop="affiliation">OMBU</span>.
-            </p>
-            <a class="btn" href="mailto:martin@ombuweb.com">martin@ombuweb.com</a>
+            <div class="span6">
+                <h2>New Business Inquiries</h2>
+                <p itemscope itemtype="http://data-vocabulary.org/Person">
+                    Please contact 
+                    <span itemprop="name">Martin Rio</span>, 
+                    <span itemprop="title">Principal</span> at 
+                    <span itemprop="affiliation">OMBU</span>.
+                </p>
+                <a class="btn" href="mailto:martin@ombuweb.com">martin@ombuweb.com</a>
+            </div><!-- /.span6 -->
+
+            </div><!-- /.row-fluid -->
+
+            <img class="map" src="{{ 'theme/img/map.png' | cdn }}">
+
         </div>
         <div class="span3"></div>
     </div>
