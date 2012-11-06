@@ -3,9 +3,11 @@
 import sys
 sys.path.append('./lib/local')
 
+BUILD_ENV = 'development'
 AUTHOR = u"Martin Rio"
 SITENAME = u"OMBU: Web Development in Portland, Oregon"
-SITEURL = 'http://ombuweb.com'
+DOMAIN = 'qa2.dev.ombuweb.com'
+SITEURL = 'http://' + DOMAIN
 TIMEZONE = 'US/Pacific'
 DEFAULT_LANG = 'en'
 DEFAULT_PAGINATION = False
