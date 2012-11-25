@@ -31,6 +31,7 @@
 @orange: hsl(32, 100%, 40%);
 // @blue: hsl(209, 37%, 36%);
 @blue: hsl(227, 39%, 45%);
+@blueLight: hsl(176, 32%, 60%);
 @white: #fff;
 @black: #333;
 @gray: hsl(18, 7%, 38%);
@@ -39,8 +40,8 @@
 @bg2: @red;
 
 // Other vars
-@fontFamily: 'OpenSansRegular', Arial, sans;
-@fontFamilyLight: 'OpenSansLight', Arial, sans;
+@fontFamily: 'AvenirLTStd-Book', 'OpenSansRegular', Arial, sans;
+@fontFamilyLight: 'AvenirLTStd-Light', 'OpenSansLight', Arial, sans;
 @radius: 4px;
 @padding-left: 2em; /* padding from the left of the viewport for certain
                        elements such as logo */
@@ -49,6 +50,7 @@
 @navbarLinkBackgroundActive: transparent;
 @navbarLinkColorActive: @red;
 @linkColor: @blue;
+@baseFontSize: 14px;
 
 // Fonts
 
@@ -81,7 +83,6 @@ html, body, .container-fluid { height: 100% }
 /* Absolute typography on the body elements. Relative units after that. */
 body {
     font-family: @fontFamily;
-    font-size: 13px;
     line-height: 170%;
     word-spacing: 2px;
     letter-spacing: 0.04em;
@@ -114,6 +115,7 @@ p {
         padding-left: 1.2em;
         list-style: none;
         background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAHCAYAAAA1WQxeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpCNEIxN0RFRjEzM0QxMUUyOTI5NEM3MEFFRkExMTE4RiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpCNEIxN0RGMDEzM0QxMUUyOTI5NEM3MEFFRkExMTE4RiI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkI0QjE3REVEMTMzRDExRTI5Mjk0QzcwQUVGQTExMThGIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkI0QjE3REVFMTMzRDExRTI5Mjk0QzcwQUVGQTExMThGIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+peV+WAAAAExJREFUeNpi3GBlxYADMAFxLwsOSU4gXgzEwdgUiADxJiC2BHHQFagA8TYgVkW2BwYsgPgYsiSygiAg3gfEothcmg/Eq6AOwwAAAQYA3wgILkGeLJ0AAAAASUVORK5CYII=') 0 0.6em no-repeat;
+        margin-bottom: 0.5em;
     }
 }
 
@@ -167,14 +169,16 @@ p {
 .hero-unit {
     border-radius: none;
     padding: 0;
-    p.lead {
-        margin-top: 2em;
+
+    h1,h2 {
+        text-shadow: rgba(0, 0, 0, 0.5) 0 2px 1px;
     }
 }
 
 .tab {
     display: none;
 }
+
 .tab.active {
     display: block;
 }
@@ -208,13 +212,18 @@ p {
     }
 
     h1 {
-        background-color: @red;
+        font-family: 'Cabin Sketch', cursive;
+        // background-color: @red;
+        color: @red;
         bottom: 15%;
+        font-size: 350%;
     }
 
     p {
-        font-size: 150%;
-        background-color: @blue;
+        font-family: 'Cabin Sketch', cursive;
+        color: @red;
+        font-size: 200%;
+        // background-color: @blueLight;
         bottom: 5%;
     }
 }
@@ -222,22 +231,39 @@ p {
 #work {
     padding: 0 @padding-left;
     background: url(../img/grey-tile.png);
+    box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.3);
     .slide {
         border-radius: @radius;
         .box-shadow(2px 2px 9px rgba(0,0,0,0.5));
         margin-top: 1.5em;
     }
+    .projects li > a {
+        font-size: 0.8em;
+    }
 }
 
 #skill {
-    font-family: @fontFamilyLight;
-    background-color: @red;
-    color: @white;
-    a {
+    background-color: @white;
+    > .row-fluid:first-child {
+        background-color: @red;
+    }
+    .hero-unit {
+        font-family: @fontFamilyLight;
         color: @white;
+        a {
+            color: @white;
+        }
     }
     .nav-pills {
+        margin-top: 2em;
         margin-bottom: 0;
+        a {
+            font-size: 1.1em;
+            padding: 0.8em 1em 0.5em 1em;
+            text-transform: uppercase;
+            border-radius: 5px 5px 0px 0px;
+            margin-bottom: 0;
+        }
         > .active > a, .nav-pills > .active > a:hover {
             background-color: @white;
             color: @blue;
@@ -248,9 +274,13 @@ p {
         color: @blue;
     }
     .skill {
+        .clearfix();
         margin-top: -5px;
+        padding: 3em 2em 2em 2em;
         min-height: 200px;
-        background-color: @white;
+        strong {
+            color: #000;
+        }
     }
 }
 
@@ -262,8 +292,8 @@ p {
         font-family: @fontFamilyLight;
     }
     .team-members {
-        border-top: 0.5em solid @blue;
-        border-bottom: 0.5em solid @blue;
+        border-top: 0.5em solid @blueLight;
+        border-bottom: 0.5em solid @blueLight;
         background-color: hsl(0, 0%, 0%);
         max-width: 1500px;
         margin: 0 auto;
@@ -294,7 +324,7 @@ p {
         top: 0;
         left: 0;
         h3 {
-            border-bottom: 1px solid @blue;
+            border-bottom: 1px solid @blueLight;
             font-size: 1.2em;
         }
         h4 {
@@ -303,7 +333,7 @@ p {
         }
     }
     .team-member:hover .bio {
-        height: 100%;
+        height: 50%;
     }
 }
 
@@ -312,22 +342,16 @@ p {
     h2{
         color: @yellow;
     }
-    .hero-unit {
         h1 {
-            background-color: rgba(255,255,255,0.8);
-            font-size: 2.5em;
-            padding: 0.5em 1em;
-            border-radius: @radius;
-            float: right;
-            color: @blue;
+            margin-left: 5em;
+            margin-bottom: 1em;
         }
-    }
     .address {
-        .box-shadow(-3px 0px 9px hsla(0, 0%, 0%, 0.3));
+        .box-shadow(3px 0px 9px hsla(0, 0%, 0%, 0.3));
         position: absolute;
-        right: 0;
+        left: 0;
         height: 100%;
-        background-color: @blue;
+        background-color: fade(darken(@blue, 15%), 80%);
         padding: 0 3em;
         color: @white;
     }
@@ -364,7 +388,7 @@ p {
 
     // Padding to set content in a bit
     body {
-        font-size: 11px;
+        font-size: 14px;
         padding-left: inherit;
         padding-right: inherit;
     }

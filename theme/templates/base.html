@@ -13,23 +13,21 @@
         {% assets filters="less,cssmin", output="css/main.min.css", "css/main.less" %}
             <link rel="stylesheet" href="{{ ASSET_URL | cdn }}">
         {% endassets %}
+        <link href='http://fonts.googleapis.com/css?family=Cabin+Sketch:700'
+        rel='stylesheet' type='text/css'>
 
         <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
         <!--[if lt IE 9]>
         <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
 
-        <link rel="shortcut icon" href="../assets/ico/favicon.ico">
-        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ SITEURL }}theme/ico/apple-touch-icon-144-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ SITEURL }}theme/ico/apple-touch-icon-114-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ SITEURL }}theme/ico/apple-touch-icon-72-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" href="{{ SITEURL }}theme/ico/apple-touch-icon-57-precomposed.png">
+        <link rel="shortcut icon" href="{{ 'theme/img/favicon.png' | cdn }}">
 
     </head>
 
     <body data-spy="scroll" data-target='#main-nav'>
 
-        <img id="logo" alt="{{ SITENAME }}" src="{{ 'theme/img/OMBU_logo.png' | cdn }}">
+        <img id="logo" alt="{{ SITENAME }}" src="{{ 'theme/img/logo/OMBU_logo.png' | cdn }}">
 
         <div id="main-nav" class="navbar navbar-fixed-top">
             <div class="navbar-inner">
@@ -37,8 +35,8 @@
                     <div class="span10 offset2">
                         <ul class="nav">
                             <li class="active"><a href="#home">Home</a></li>
+                            <li><a href="#skill">Services</a></li>
                             <li><a href="#work">Work</a></li>
-                            <li><a href="#skill">Skills</a></li>
                             <li><a href="#team">Team</a></li>
                             <li><a href="#contact">Contact</a></li>
                             {% for title, link in MENUITEMS %}

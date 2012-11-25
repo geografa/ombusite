@@ -8,6 +8,7 @@ def qa():
     """
     The qa server definition
     """
+    env.config_file = 'config.production.py'
     env.hosts = ['ombu@d2.ombuweb.com:34165']
     env.host_type = 'qa'
     env.user = 'ombu'
@@ -22,7 +23,7 @@ def push(ref='origin/master'):
     """
     from fabric.api import local, run, cd
     from fabric.contrib.project import rsync_project
-    local('pelican -s config.py -d')
+    local('pelican -s %s -d' % env.config_file)
     with cd(env.host_site_path):
         run('rm -rf public && mkdir public')
     rsync_project(

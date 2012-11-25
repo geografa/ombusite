@@ -1,28 +1,182 @@
-{% macro skill(title) %}
-<div class="skill span12">
-</div>
-{%- endmacro %}
-
 <div id="skill" class="pane">
+
     <div class="row-fluid">
         <div class="offset2 span10">
             <div class="hero-unit">
-                <h1>The Skills</h1>
-                <p>We are fervent believers <strong>and practitioners</strong> of using the best tool for
-                the job. Our experience with platforms in PHP, JavaScript, Python, and
-                Java gives our team a much deeper understanding of patterns and
-                approaches to Web challenges. This technical breadth and maturity
-                benefits every project.<p>
+                <h1>Our principal goal is to add value.</h1>
+                <h2>Our weapons of choice are our expertise, experience, and efficient
+                    operations.</h2>
                 <ul class="nav nav-pills">
-                    <li class="active"><a data-toggle="tab" href="#">Content Management Systems</a></li>
-                    <li><a data-toggle="tab" href="#">Applications</a></li>
-                    <li><a data-toggle="tab" href="#">Cloud Infrastructure</a></li>
-                    <li><a data-toggle="tab" href="#">High-end design implenetations</a></li>
+                    <li class="active"><a data-toggle="tab" href="#strategy">Technical Strategy</a></li>
+                    <li><a data-toggle="tab" href="#cms">Content Management Systems</a></li>
+                    <li><a data-toggle="tab" href="#applications">Applications</a></li>
+                    <li><a data-toggle="tab" href="#cloud">Cloud Infrastructure</a></li>
                 </ul>
             </div>
         </div>
     </div><!-- /.row-fluid -->
+
     <div class="row-fluid">
-        {{ skill(title="Woot") }}
+
+        <div id="strategy" class="tab skill active">
+
+            <div class="span5 offset1">
+
+                <p class='lead'>The smartest decisions often happen at the
+                drawing board.<p>
+                
+                <p class="lead"><small>Many of our engagements start with
+                    consulting.  With our experience developing and launching
+                    platforms, and managing and scaling online communities,
+                    we're able to help you make the right decisions early on and
+                    avoid costly mistakes.</small></p>
+
+            </div><!-- /.span7 -->
+
+            <div class="span5">
+
+                <p class='lead'>At the drawing board you can:</p> 
+
+                <ul>
+                    <li>Consider how your site will evolve as you add content and
+                    traffic.</li>
+                    <li>Understand the long-term cost and impact of technical
+                    decisions.</li>
+                    <li>Consider how your site will adapt to emerging technologies
+                    and devices.</li>
+                    <li>Consier how your new product will play with existing
+                    systems and services.</li>
+                </ul>
+
+            </div><!-- /.span5 -->
+
+        </div><!-- /#strategy -->
+
+        <div id="cms" class="tab skill">
+
+            <div class="span5 offset1">
+
+                <p class='lead'>Most of our CMS builds use Drupal.</p>
+
+                <p class="lead"><small>We've been using Drupal since 2007, and know it in-and-out.</small></p>
+
+                <img class="lazy" src="{{ 'theme/img/grey.gif' | cdn }}"
+                title="Content Management Systems" data-original="{{ 'theme/img/logo/drupal-association-organisation-member.png' | cdn }}" 
+                width="25%">
+
+            </div><!-- /.span7 -->
+
+            <div class="span5">
+                <p class="lead">Why Drupal?</p>
+                <ul>
+                    <li>Drupal is mature, robust, and can handle sites of any
+                    size, and specification.</li>
+                    <li>Drupal is Open Source and works best with Open Source
+                    technologies. Among many other things, this <strong>means more
+                        of your budget goest to making your site work just like you
+                        need</strong>, and less going to licenses.</li>
+                    <li>We don't like to corner our clients into niche technologies.
+                    <strong>Drupal has a large, established, &amp; fantastic community</strong>.</li>
+                </ul>
+
+
+            </div><!-- /.span5 -->
+
+        </div><!-- /#cms -->
+
+        <div id="applications" class="tab skill">
+
+            <div class="span5 offset1">
+
+                <p class="lead">
+                We've helped agencies, startups, and large companies build
+                Web-based applications. Our nimble process makes us an ideal
+                partner and allows you to launch better products, faster, and
+                most cost-effectively.
+                </p>
+
+                <img class="lazy" src="{{ 'theme/img/grey.gif' | cdn }}"
+                title="Zend Framework" data-original="{{ 'theme/img/logo/zf-logo-mark.png' | cdn }}" 
+                width="25%">
+
+                <img class="lazy" src="{{ 'theme/img/grey.gif' | cdn }}"
+                title="Django" data-original="{{ 'theme/img/logo/django.jpg' | cdn }}" 
+                width="25%">
+
+                <img class="lazy" src="{{ 'theme/img/grey.gif' | cdn }}"
+                title="Facebook" data-original="{{ 'theme/img/logo/f_logo.png' | cdn }}" 
+                width="15%">
+
+            </div><!-- /.span7 -->
+
+            <div class="span5">
+
+                <p class="lead">
+                Some applications we built recently:
+                </p>
+
+                <ul>
+                    <li><strong>Facebook Apps:</strong> We've architected and built a Facebook
+                    Style challenge for <a
+                        href="http://www.pacsun.com/on/demandware.store/Sites-pacsun-Site/default/Default-Start">PacSun</a>
+                    where fans could upload their
+                    looks, and vote.</li>
+                    <li><strong>Ticketing System:</strong> We've helped our
+                    long-time client <a href="http://www.evosus.com">Evosus</a> launch a support portal for their
+                    customers, integrating with existing internal systems.</li>
+                    <li><strong>Publishing Platform:</strong> We helped <a
+                        href="http://www.whfreeman.com">W.H. Freeman</a> develop
+                    an e-book writing and publishing system where college
+                    textbook authors could write the book and exchange feedback
+                    with their editors, and output the book as XML, a print-read
+                    PDF, or fully functional Web sites.</li>
+                </ul>
+
+                <!-- <img class="lazy" src="{{ 'theme/img/grey.gif' | cdn }}" -->
+                <!-- title="Applications" data-original="{{ 'theme/img/drupal-association-organisation-member.png' | cdn }}" --> 
+                <!-- width="40%"> -->
+
+            </div><!-- /.span5 -->
+
+        </div><!-- /#applications -->
+
+        <div id="cloud" class="tab skill">
+
+            <div class="span5 offset1">
+
+                <p class="lead">
+                We've been helping our clients get set up on the Amazon cloud
+                since its early days. We've seen it grow in capabilities in
+                shrink it cost to allow setup for sites and startups that only
+                large companies could previously afford.
+                </p>
+
+                <img class="lazy" src="{{ 'theme/img/grey.gif' | cdn }}"
+                title="Amazon Web Services Consulting Partner" data-original="{{ 'theme/img/logo/AWS_Logo_Consulting_Partner.png' | cdn }}" 
+                width="90%">
+
+            </div><!-- /.span5 -->
+            
+            <div class="span5">
+
+                <p class="lead">Cloud infrastructure means:</p>
+                <ul>
+                    <li>You get affordable access to scaling, performance, and
+                    failover that was previously only available with large
+                    upfront investments.</li>
+                    <li>You get resources tailored to the needs of your
+                    application, and the ability to to scale rapidly when
+                    necessary.</li>
+                    <li>You're not affected by failure on a your datacenter. Our
+                    cloud implementations are spread across geographic
+                    regions.</li>
+                    <li>You get outstanding value and never have to pay for
+                    resources you don't use.</li>
+                </ul>
+
+            </div><!-- /.span7 -->
+
+        </div><!-- /#cloud -->
+
     </div>
 </div>

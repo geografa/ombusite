@@ -1,4 +1,4 @@
-$.fx.speeds._default = 400;
+$.fx.speeds._default = 300;
 
 function closestToTop() {
     var currDelta = Number.POSITIVE_INFINITY, currElem;
@@ -34,7 +34,7 @@ jQuery(document).ready(function($) {
     // Scroll panes when clicking on nav items
     $('#main-nav a').click(function(event) {
         event.preventDefault();
-        var x = $(this.hash).offset().top;
+        var x = $(this.hash).offset().top - $('#main-nav').height() + 2;
         var hash = this.hash;
         $('html,body').animate(
             {
