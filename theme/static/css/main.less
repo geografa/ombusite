@@ -89,13 +89,6 @@ body {
     padding-bottom: 200px;
 }
 
-h1, h2, h3 {
-    small {
-        font-size: 60%;
-        color: darken(@grayLight, 50%);
-    }
-}
-
 h2 {
     font-size: 1.6em;
     line-height: 100%;
@@ -121,10 +114,6 @@ p {
 
 .container-fluid {
     padding: 0;
-}
-
-.sidebar-nav {
-    padding: 9px 0;
 }
 
 #logo {
@@ -212,18 +201,17 @@ p {
     }
 
     h1 {
-        font-family: 'Cabin Sketch', cursive;
-        // background-color: @red;
-        color: @red;
+        background-color: hsla(0, 0%, 0%, 0.4);
+        color: darken(@red, 20%);
+        text-shadow: rgba(0, 0, 0, 0.5) 0 2px 1px;
         bottom: 15%;
-        font-size: 350%;
     }
 
     p {
-        font-family: 'Cabin Sketch', cursive;
-        color: @red;
-        font-size: 200%;
-        // background-color: @blueLight;
+        color: @white;
+        font-size: 150%;
+        background-color: hsla(0, 0%, 0%, 0.4);
+        text-shadow: rgba(0, 0, 0, 0.5) 0 2px 1px;
         bottom: 5%;
     }
 }
@@ -232,6 +220,7 @@ p {
     padding: 0 @padding-left;
     background: url(../img/grey-tile.png);
     box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.3);
+    border-bottom: 0.5em solid @blueLight;
     .slide {
         border-radius: @radius;
         .box-shadow(2px 2px 9px rgba(0,0,0,0.5));
@@ -259,6 +248,8 @@ p {
         margin-bottom: 0;
         a {
             font-size: 1.1em;
+            font-weight: bold;
+            text-shadow: rgba(0, 0, 0, 0.2) 0 -1px 2px;
             padding: 0.8em 1em 0.5em 1em;
             text-transform: uppercase;
             border-radius: 5px 5px 0px 0px;
@@ -267,11 +258,13 @@ p {
         > .active > a, .nav-pills > .active > a:hover {
             background-color: @white;
             color: @blue;
+            text-shadow: none;
         }
 
     }
     .nav > li:not(.active) > a:hover {
         color: @blue;
+        text-shadow: none;
     }
     .skill {
         .clearfix();
@@ -284,6 +277,13 @@ p {
     }
 }
 
+h1 {
+    font-size: 2em;
+    strong {
+        color: @yellow;
+    }
+}
+
 #team {
     height: auto;
     background: url(../img/wood-grain.jpg) repeat;
@@ -292,7 +292,6 @@ p {
         font-family: @fontFamilyLight;
     }
     .team-members {
-        border-top: 0.5em solid @blueLight;
         border-bottom: 0.5em solid @blueLight;
         background-color: hsl(0, 0%, 0%);
         max-width: 1500px;
@@ -333,7 +332,7 @@ p {
         }
     }
     .team-member:hover .bio {
-        height: 50%;
+        height: 60%;
     }
 }
 
