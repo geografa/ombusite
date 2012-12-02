@@ -21,7 +21,7 @@
 @import "../../../lib/bootstrap/less/navs.less";
 @import "../../../lib/bootstrap/less/navbar.less";
 @import "../../../lib/bootstrap/less/carousel.less";
-// @import "../../../lib/bootstrap/less/responsive.less";
+@import "../../../lib/bootstrap/less/responsive.less";
 
 // Components: Buttons & Alerts
 @import "../../../lib/bootstrap/less/buttons.less";
@@ -121,9 +121,9 @@ p {
     position: fixed;
     top: -50px;
     left: @padding-left;
-    width: 13%;
-    max-width: 140px;
-    min-width: 90px;
+    width: 120px;
+    // max-width: 140px;
+    // min-width: 90px;
     box-shadow: 2px 2px 3px rgba(0,0,0,0.5);
 }
 
@@ -237,6 +237,7 @@ p {
         background-color: @red;
     }
     .hero-unit {
+        padding: 0 2em;
         font-family: @fontFamilyLight;
         color: @white;
         a {
@@ -247,13 +248,11 @@ p {
         margin-top: 2em;
         margin-bottom: 0;
         a {
-            font-size: 1.1em;
             font-weight: bold;
-            text-shadow: rgba(0, 0, 0, 0.2) 0 -1px 2px;
             padding: 0.8em 1em 0.5em 1em;
-            text-transform: uppercase;
-            border-radius: 5px 5px 0px 0px;
-            margin-bottom: 0;
+            font-size: 1.1em;
+            text-shadow: rgba(0, 0, 0, 0.2) 0 -1px 2px;
+            margin-bottom: 1em;
         }
         > .active > a, .nav-pills > .active > a:hover {
             background-color: @white;
@@ -366,6 +365,17 @@ h1 {
 /********************************************************************************
 * Our overrides to Bootstrap responsive styles
 ********************************************************************************/
+@media (min-width: 1200px) {
+
+    #skill .nav-pills {
+        a {
+            text-transform: uppercase;
+            border-radius: 5px 5px 0px 0px;
+            margin-bottom: 0;
+        }
+    }
+}
+
 @media (max-width: 979px) {
     .navbar-fixed-top {
         margin-bottom: inherit;
@@ -393,20 +403,37 @@ h1 {
     }
 
     #logo {
+        position: absolute;
         width: 120px;
     }
 
+    #contact {
+        .map {
+            max-width: 60%;
+        }
+        h1 {
+            opacity: 0;
+        }
+    }
+
+    .navbar-fixed-top {
+        position: absolute;
+    }
+
     .navbar .nav {
-        margin-left: 7em;
+        margin-left: 12em;
     }
 
 }
 
 @media (max-width: 480px) {
-    .navbar .nav  {
-        margin-left: 5em;
-        li {
-            float: none;
-        }
+  #work {
+      h1 {
+          text-align: center;
+      }
+      .highlights {
+        display: none;
     }
+  }
+
 }

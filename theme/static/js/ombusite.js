@@ -23,6 +23,10 @@ jQuery(document).ready(function($) {
     // Center closest pane after ms of no resizing
     var id, ms = 500;
     $(window).resize(function() {
+        if ($(window).width() < 480) {
+            return;
+        }
+
         clearTimeout(id);
         id = setTimeout(function() {
             var el = closestToTop(),
