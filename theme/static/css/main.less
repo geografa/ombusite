@@ -42,6 +42,7 @@
 // Other vars
 @fontFamily: 'AvenirLTStd-Book', 'OpenSansRegular', Arial, sans;
 @fontFamilyLight: 'AvenirLTStd-Light', 'OpenSansLight', Arial, sans;
+@fontFamilyNative: 'Helvetica Neue', Helvetica, Arial, sans;
 @radius: 4px;
 @padding-left: 2em; /* padding from the left of the viewport for certain
                        elements such as logo */
@@ -189,29 +190,31 @@ p {
 }
 
 #home {
+    min-height: 30em;
+
     background-image: url(../img/photo-bg-5.jpg);
 
     h1, p {
+        font-family: @fontFamilyNative;
+        font-weight: bold;
         margin: 1em 0 1em 1em;
         padding: 0.5em 1em 0.5em 1em;
         border-radius: @radius;
-        color: @white;
         position: absolute;
         right: 5%;
+        color: hsl(0, 0%, 10%);
+        text-shadow: @white 0 2px 1px;
+        text-align: right;
     }
 
     h1 {
-        background-color: hsla(0, 0%, 0%, 0.4);
-        color: darken(@red, 20%);
-        text-shadow: rgba(0, 0, 0, 0.5) 0 2px 1px;
+        font-size: 400%;
         bottom: 15%;
     }
 
     p {
-        color: @white;
-        font-size: 150%;
-        background-color: hsla(0, 0%, 0%, 0.4);
-        text-shadow: rgba(0, 0, 0, 0.5) 0 2px 1px;
+        font-size: 240%;
+        line-height: 100%%;
         bottom: 5%;
     }
 }
@@ -228,6 +231,19 @@ p {
     }
     .projects li > a {
         font-size: 0.8em;
+    }
+    .nav-pills {
+        a {
+            font-weight: bold;
+
+            &:hover {
+                #gradient > .vertical(@grayLight, darken(@grayLight, 15%));
+            }
+        }
+        .active > a {
+            #gradient > .vertical(@blue, darken(@blue, 15%));
+            text-shadow: hsla(0, 0%, 0%, 0.8) 0px -1px 0px;
+        }
     }
 }
 
@@ -402,20 +418,6 @@ h1 {
         padding-right: inherit;
     }
 
-    #logo {
-        position: absolute;
-        width: 120px;
-    }
-
-    #contact {
-        .map {
-            max-width: 60%;
-        }
-        h1 {
-            opacity: 0;
-        }
-    }
-
     .navbar-fixed-top {
         position: absolute;
     }
@@ -424,16 +426,63 @@ h1 {
         margin-left: 12em;
     }
 
+    .nav-pills li {
+        float: none;
+    }
+
+    .pane {
+        min-height: 0;
+
+        h1 {
+            margin-top: 20px;
+        }
+
+        ul.projects {
+            margin-top: 25px;
+        }
+
+    }
+
+    #logo {
+        position: absolute;
+        width: 120px;
+    }
+
+    #contact {
+        .address {
+            position: static;
+        }
+
+        .map {
+            max-width: 60%;
+        }
+        h1 {
+            opacity: 0;
+        }
+    }
+
 }
 
 @media (max-width: 480px) {
-  #work {
-      h1 {
-          text-align: center;
-      }
-      .highlights {
-        display: none;
+    #work {
+        .highlights {
+            display: none;
+        }
     }
-  }
+    #team {
+        .team-member {
+            &:hover .bio {
+                height: auto;
+            }
+            .bio {
+                height: auto;
+                h3 {
+                    font-size: 1em;
+                    line-height: 100%;
+                    border: none;
+                }
+            }
+        }
+    }
 
 }

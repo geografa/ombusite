@@ -7,8 +7,10 @@
     </div>
     <div class="bio">
         <h3>{{ name }}</h3>
-        <h4>{{ title }}</h4>
-        {{ bio }}
+        <div class="hidden-phone">
+            <h4>{{ title }}</h4>
+            {{ bio }}
+        </div>
     </div>
 </div>
 {%- endmacro %}
