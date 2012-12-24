@@ -27,12 +27,12 @@
 
     <body data-spy="scroll" data-target='#main-nav'>
 
-        <img id="logo" alt="{{ SITENAME }}" src="{{ 'theme/img/logo/OMBU_logo.png' | cdn }}">
+        <img id="logo" alt="{{ SITENAME }}" src="{{ 'theme/img/logo/OMBU_logo_wood.png' | cdn }}">
 
         <div id="main-nav" class="navbar navbar-fixed-top">
             <div class="navbar-inner">
                 <div class="row-fluid">
-                    <div class="span10 offset2">
+                    <div class="span10">
                         <ul class="nav">
                             <li class="active"><a href="#home">Home</a></li>
                             <li><a href="#skill">Services</a></li>
@@ -53,8 +53,10 @@
         </div><!--/.fluid-container-->
 
         {% block js %}
+        <!-- <script -->
+        <!--     src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script> -->
         <script
-            src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+            src="{{ "theme/js/jquery-1.7.2.min.js" |cdn }}"></script>
         {% assets filters="rjsmin", output="js/packed.js",
             "js/jquery.lazyload.js",
             "js/bootstrap-tab.js", "js/bootstrap-carousel.js",

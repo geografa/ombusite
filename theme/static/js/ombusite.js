@@ -22,18 +22,18 @@ jQuery(document).ready(function($) {
 
     // Center closest pane after ms of no resizing
     var id, ms = 500;
-    $(window).resize(function() {
-        if ($(window).width() < 480) {
-            return;
-        }
+    // $(window).resize(function() {
+    //     if ($(window).width() < 480) {
+    //         return;
+    //     }
 
-        clearTimeout(id);
-        id = setTimeout(function() {
-            var el = closestToTop(),
-           i = $('.pane').index(el);
-        $('.nav > li > a').eq(i).trigger('click');
-        }, ms);
-    });
+    //     clearTimeout(id);
+    //     id = setTimeout(function() {
+    //         var el = closestToTop(),
+    //        i = $('.pane').index(el);
+    //     $('.nav > li > a').eq(i).trigger('click');
+    //     }, ms);
+    // });
 
     // Scroll panes when clicking on nav items
     $('#main-nav a').click(function(event) {

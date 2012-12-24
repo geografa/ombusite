@@ -120,7 +120,7 @@ p {
 #logo {
     z-index: @zindexFixedNavbar + 1;
     position: fixed;
-    top: -50px;
+    top: -25px;
     left: @padding-left;
     width: 120px;
     // max-width: 140px;
@@ -129,6 +129,7 @@ p {
 }
 
 #main-nav .nav {
+    margin-left: 12em;
     & > li {
         > a {
             color: @gray;
@@ -190,32 +191,32 @@ p {
 }
 
 #home {
-    min-height: 30em;
+    min-height: 100%;
 
     background-image: url(../img/photo-bg-5.jpg);
 
+    .hero {
+        position: absolute;
+        bottom: 5%;
+        right: 5%;
+    }
+
     h1, p {
+        text-align: right;
         font-family: @fontFamilyNative;
         font-weight: bold;
-        margin: 1em 0 1em 1em;
-        padding: 0.5em 1em 0.5em 1em;
-        border-radius: @radius;
-        position: absolute;
-        right: 5%;
-        color: hsl(0, 0%, 10%);
-        text-shadow: @white 0 2px 1px;
-        text-align: right;
+        text-shadow: darken(@blue, 20%) 3px 2px 0px;
     }
 
     h1 {
+        color: @red;
         font-size: 400%;
-        bottom: 15%;
     }
 
     p {
+        color: @white;
         font-size: 240%;
         line-height: 100%%;
-        bottom: 5%;
     }
 }
 
@@ -420,10 +421,8 @@ h1 {
 
     .navbar-fixed-top {
         position: absolute;
-    }
-
-    .navbar .nav {
-        margin-left: 12em;
+        margin-right:0;
+        margin-left:0;
     }
 
     .nav-pills li {
@@ -457,17 +456,13 @@ h1 {
             max-width: 60%;
         }
         h1 {
+            margin: 0;
             opacity: 0;
         }
     }
 
-}
-
-@media (max-width: 480px) {
-    #work {
-        .highlights {
-            display: none;
-        }
+    #front {
+        min-height: 30em;
     }
     #team {
         .team-member {
@@ -482,6 +477,15 @@ h1 {
                     border: none;
                 }
             }
+        }
+    }
+
+}
+
+@media (max-width: 480px) {
+    #work {
+        .highlights {
+            display: none;
         }
     }
 
