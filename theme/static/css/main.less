@@ -15,7 +15,6 @@
 
 // Base CSS
 @import "../../../lib/bootstrap/less/type.less";
-// @import "../../../lib/bootstrap/less/forms.less";
 
 // Components: Nav
 @import "../../../lib/bootstrap/less/navs.less";
@@ -23,13 +22,9 @@
 @import "../../../lib/bootstrap/less/carousel.less";
 @import "../../../lib/bootstrap/less/responsive.less";
 
-// Components: Buttons & Alerts
-@import "../../../lib/bootstrap/less/buttons.less";
-
 // Colors
-@red: hsl(2, 60%, 56%);
+@red: hsl(1, 65%, 58%);
 @orange: hsl(32, 100%, 40%);
-// @blue: hsl(209, 37%, 36%);
 @blue: hsl(227, 39%, 45%);
 @blueLight: hsl(176, 32%, 60%);
 @white: #fff;
@@ -37,7 +32,7 @@
 @gray: hsl(18, 7%, 38%);
 @grayLight: hsl(23, 12%, 87%);
 @yellow: #FFF257;
-@bg2: @red;
+@beige: hsl(60, 8%, 77%);
 
 // Other vars
 @fontFamily: 'AvenirLTStd-Book', 'OpenSansRegular', Arial, sans;
@@ -49,12 +44,11 @@
 
 // Bootstrap variable overrides
 @navbarLinkBackgroundActive: transparent;
-@navbarLinkColorActive: @red;
+@navbarLinkColorActive: @orange;
 @linkColor: @blue;
 @baseFontSize: 14px;
 
-// Fonts
-
+// Embeded fonts
 @font-face {
     font-family: 'OpenSansRegular';
     src: url('../font/OpenSans-Regular-webfont.eot');
@@ -65,8 +59,6 @@
     font-weight: normal;
     font-style: normal;
 }
-
-
 @font-face {
     font-family: 'OpenSansLight';
     src: url('../font/OpenSans-Light-webfont.eot');
@@ -79,15 +71,56 @@
 
 }
 
+// Mixins
+.nav-pills-arrow-right li {
+    @size: 23px;
+    @multiplier: 1.05;
+    height: @size * 2;
+    position: relative;
+    background: @beige;
+    border: 0 !important;
+    &:after, &:before {
+        left: 100%;
+        border: solid transparent;
+        content: " ";
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+    }
+    &:after {
+        border-color: rgba(136, 183, 213, 0);
+        border-left-color: @beige;
+        border-width: @size;
+        top: 50%;
+        margin-top: -@size;
+    }
+    &:before {
+        border-color: rgba(194, 225, 245, 0);
+        border-left-color: @beige;
+        border-width: @size * @multiplier;
+        top: 50%;
+        margin-top: @size * @multiplier;
+    }
+}
+
 html, body, .container-fluid { height: 100% }
 
-/* Absolute typography on the body elements. Relative units after that. */
 body {
+    /* Absolute typography on the body elements. Relative units after that. */
     font-family: @fontFamily;
     line-height: 170%;
     word-spacing: 2px;
     letter-spacing: 0.04em;
     padding-bottom: 200px;
+}
+
+h1 {
+    font-size: 3.2em;
+    strong {
+        font-style: italic;
+        font-weight: normal;
+    }
 }
 
 h2 {
@@ -146,8 +179,37 @@ p {
             }
         }
         &.active {
-            a, a:hover, a:active { .box-shadow(none); }
+            a, a:hover, a:active {
+                .box-shadow(none);
+                color: @navbarLinkColorActive;
+            }
         }
+    }
+}
+
+.nav-pills {
+    border-bottom: 1px solid;
+    > li > a {
+        font-weight: bold;
+        font-size: 1.1em;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: darken(@red, 30%);
+        padding-right: 18px;
+    }
+    > li:first-child > a {
+        padding-left: 0;
+    }
+    > li:last-child > a {
+        padding-right: 0;
+    }
+    > .active {
+        border-bottom: 5px solid;
+    }
+    > .active > a,
+    > .active > a:hover,
+    > li > a:hover {
+        background-color: transparent;
     }
 }
 
@@ -160,10 +222,6 @@ p {
 .hero-unit {
     border-radius: none;
     padding: 0;
-
-    h1,h2 {
-        text-shadow: rgba(0, 0, 0, 0.5) 0 2px 1px;
-    }
 }
 
 .tab {
@@ -184,131 +242,81 @@ p {
     h1 {
         margin-top: 45px;
     }
-    ul.projects {
-        font-size: 1.3em;
-        margin-top: 55px;
-    }
 }
 
 #home {
-    min-height: 100%;
+    min-height: 85%;
 
     background-image: url(../img/photo-bg-5.jpg);
 
     .hero {
-        position: absolute;
-        bottom: 5%;
-        right: 5%;
-    }
-
-    h1, p {
-        text-align: right;
-        font-family: @fontFamilyNative;
-        font-weight: bold;
-        text-shadow: darken(@blue, 20%) 3px 2px 0px;
+        background: hsla(0, 0%, 0%, 0.3) url(../img/home/portland.png) 34px 41px no-repeat;
+        .box-sizing(border-box);
+        width: 590px;
+        margin: 12em auto 0 13em;
+        color: @white;
+        border: 9px solid;
+        padding: 0 2em 0 135px;
+        min-height: 14em;
     }
 
     h1 {
-        color: @red;
-        font-size: 400%;
+        font-weight: bold;
+        font-size: 350%;
     }
 
     p {
-        color: @white;
-        font-size: 240%;
-        line-height: 100%%;
+        font-size: 180%;
+        line-height: 130%%;
     }
 }
 
 #work {
     padding: 0 @padding-left;
-    background: url(../img/grey-tile.png);
     box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.3);
-    border-bottom: 0.5em solid @blueLight;
     .slide {
         border-radius: @radius;
         .box-shadow(2px 2px 9px rgba(0,0,0,0.5));
         margin-top: 1.5em;
     }
-    .projects li > a {
-        font-size: 0.8em;
-    }
     .nav-pills {
-        a {
-            font-weight: bold;
-
-            &:hover {
-                #gradient > .vertical(@grayLight, darken(@grayLight, 15%));
-            }
+        border-color: @grayLight;
+        border-bottom: 1px solid @grayLight;
+        > li > a {
+            color: @black;
         }
-        .active > a {
-            #gradient > .vertical(@blue, darken(@blue, 15%));
-            text-shadow: hsla(0, 0%, 0%, 0.8) 0px -1px 0px;
+        > .active {
+            border-color: @grayLight;
+        }
+        > .active > a {
+            color: @orange;
         }
     }
+
 }
 
 #skill {
-    background-color: @white;
-    > .row-fluid:first-child {
-        background-color: @red;
-    }
+    background-color: @red;
+    color: @white;
     .hero-unit {
-        padding: 0 2em;
+        padding: 0 2em 0 1em;
         font-family: @fontFamilyLight;
-        color: @white;
-        a {
-            color: @white;
-        }
-    }
-    .nav-pills {
-        margin-top: 2em;
-        margin-bottom: 0;
-        a {
-            font-weight: bold;
-            padding: 0.8em 1em 0.5em 1em;
-            font-size: 1.1em;
-            text-shadow: rgba(0, 0, 0, 0.2) 0 -1px 2px;
-            margin-bottom: 1em;
-        }
-        > .active > a, .nav-pills > .active > a:hover {
-            background-color: @white;
-            color: @blue;
-            text-shadow: none;
-        }
-
-    }
-    .nav > li:not(.active) > a:hover {
-        color: @blue;
-        text-shadow: none;
     }
     .skill {
-        .clearfix();
-        margin-top: -5px;
-        padding: 3em 2em 2em 2em;
+        padding: 1em 2em 2em 2em;
         min-height: 200px;
-        strong {
-            color: #000;
-        }
-    }
-}
-
-h1 {
-    font-size: 2em;
-    strong {
-        color: @yellow;
     }
 }
 
 #team {
-    height: auto;
+    min-height: 0;
     background: url(../img/wood-grain.jpg) repeat;
     > .row-fluid:first-child {
         color: @white;
         font-family: @fontFamilyLight;
     }
     .team-members {
-        border-bottom: 0.5em solid @blueLight;
+        border-top: 0.5em solid @blueLight;
         background-color: hsl(0, 0%, 0%);
         max-width: 1500px;
         margin: 0 auto;
@@ -316,10 +324,9 @@ h1 {
     .team-member {
         position: relative;
         float: left;
-        width: 33.3%;
-        &:nth-of-type(3n+1) {
+        width: 25%;
+        &:nth-of-type(4n+1) {
             clear:left;
-            width: 33.4%;
         }
         img {
             width: 100%;
@@ -328,9 +335,9 @@ h1 {
     }
     .bio {
         .box-sizing(border-box);
-        .transition(height .2s ease-in);
+        .transition(height .1s ease-in);
         background-color: hsla(0,0%,0%,0.6);
-        padding: 0 10%;
+        padding: 0 5%;
         width: 100%;
         height: 0px;
         overflow: hidden;
@@ -338,35 +345,37 @@ h1 {
         position: absolute;
         top: 0;
         left: 0;
+        line-height: 120%;
         h3 {
-            border-bottom: 1px solid @blueLight;
             font-size: 1.2em;
+            line-height: 150%;
+            border-bottom: 1px solid @blueLight;
         }
         h4 {
+            line-height: 110%;
+            color: @blueLight;
             text-transform: uppercase;
-            font-size: 1em;
+            font-size: 0.85em;
+        }
+        p {
+            font-style: italic;
         }
     }
     .team-member:hover .bio {
-        height: 60%;
+        height: 100%;
     }
 }
 
 #contact {
     background-image: url(../img/omcc.jpg);
-    h2{
-        color: @yellow;
+    h2 {
+        color: lighten(@blue, 35%);
     }
-        h1 {
-            margin-left: 5em;
-            margin-bottom: 1em;
-        }
     .address {
+        margin-top: 50px;
+        margin-bottom: 50px;
         .box-shadow(3px 0px 9px hsla(0, 0%, 0%, 0.3));
-        position: absolute;
-        left: 0;
-        height: 100%;
-        background-color: fade(darken(@blue, 15%), 80%);
+        background-color: darken(@blue, 15%);
         padding: 0 3em;
         color: @white;
     }
@@ -375,6 +384,15 @@ h1 {
         border: 4px solid @white;
         border-radius: @radius;
         box-shadow: 4px 4px 4px rgba(0,0,0,.5);
+    }
+    .btn {
+        background-color: darken(@blue, 25%);
+        padding: 0.5em;
+        color: @white;
+        &:hover {
+            text-decoration: none;
+            background-color: darken(@blue, 23%);
+        }
     }
 }
 

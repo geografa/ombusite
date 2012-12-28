@@ -1,17 +1,26 @@
+/**
+ * Default jQuery animation speed.
+ */
 $.fx.speeds._default = 300;
 
-function closestToTop() {
-    var currDelta = Number.POSITIVE_INFINITY, currElem;
-    $('.pane').each(function() {
-        $th = $(this);
-        var delta = $th.position().top - window.scrollY;
-        if(Math.abs(delta) < Math.abs(currDelta)) {
-            currDelta =  delta;
-            currElem =  $th;
-        }
-    });
-    return currElem;
-}
+/**
+ * Bootstrp's scrollspy offset such that main nav updates at the correct
+ * position.
+ */
+$.fn.scrollspy.defaults.offset = 40;
+
+// function closestToTop() {
+//     var currDelta = Number.POSITIVE_INFINITY, currElem;
+//     $('.pane').each(function() {
+//         $th = $(this);
+//         var delta = $th.position().top - window.scrollY;
+//         if(Math.abs(delta) < Math.abs(currDelta)) {
+//             currDelta =  delta;
+//             currElem =  $th;
+//         }
+//     });
+//     return currElem;
+// }
 
 jQuery(document).ready(function($) {
 
@@ -21,7 +30,7 @@ jQuery(document).ready(function($) {
     $('a[data-toggle="tab"]').on('shown', function(e) { $(window).resize(); });
 
     // Center closest pane after ms of no resizing
-    var id, ms = 500;
+    // var id, ms = 500;
     // $(window).resize(function() {
     //     if ($(window).width() < 480) {
     //         return;
