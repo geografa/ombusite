@@ -1,27 +1,7 @@
 {% macro project(title, description, features) %}
 <div class="project">
 
-    <div class="span5 offset2">
-
-        <h2>{{ title }}</h2>
-
-        {{ description }}
-
-        <div class="highlights">
-
-            <ul class="nav nav-pills nav-pills-arrow-right nav-stacked">
-                {% for f in features %}
-                <li class="arrow-box {{ 'active' if loop.index == 1 }}">
-                    <a href="#">{{ f.caption }}</a>
-                </li>
-                {% endfor %}
-            </ul>
-
-        </div><!-- /.higlights -->
-
-    </div>
-
-    <div class="span5">
+    <div class="span7 ">
 
         <div class="carousel carousel-fade slide">
             <div class="carousel-inner">
@@ -36,6 +16,27 @@
         </div>
 
     </div>
+
+    <div class="span5">
+
+        <h2>{{ title }}</h2>
+
+        {{ description }}
+
+        <div class="highlights">
+
+            <ul class="nav nav-pills nav-stacked">
+                {% for f in features %}
+                <li class="{{ 'active' if loop.index == 1 }}">
+                    <a href="#">{{ f.caption }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+
+        </div><!-- /.higlights -->
+
+    </div>
+
 
 </div>
 {%- endmacro %}
@@ -70,16 +71,17 @@
             description="""
             <p>
             Ankrom Moisan is a leader in architectural, interior, and urban
-design in Portland and Seattle. They reached out to OMBU to implement their new
-site featuing high quality photography to do justice to their fantastic
-portfolio and brand. OMBU consulted on the technologies to used, implemented
-the site on a tight deadline, and assisted Ankrom's IT department with
-infrastracture setup and deployment. Design Credits: <a
-href='http://www.ankrommoisan.com'>Ankrom Moisan</a>.  </p>
+            design in Portland and Seattle. They reached out to OMBU to
+            implement their new site featuring high quality photography to do
+            justice to their fantastic portfolio and brand. OMBU consulted on
+            the technologies to used, implemented the site on a tight deadline,
+            and assisted Ankrom's IT department with infrastructure setup and
+            deployment. Design by <a href='http://www.ankrommoisan.com'>Ankrom
+                Moisan</a>.</p>
             """,
             features=[
                 {
-                'caption':"A fully-configurable, easy-to-use Drupal CMS that didn't sacrifice design.",
+                'caption':"A design-savvy Drupal CMS",
                 'image':'amaa-1.png',
                 },
                 {
@@ -100,12 +102,13 @@ href='http://www.ankrommoisan.com'>Ankrom Moisan</a>.  </p>
             description="""
             <p> 
             OMBU had the privilege to develop Paramount Pictures current
-            website, featuring a light design implemented in a single responsive front-end
-            that serve smartphones, tablets, and desktop users. The site makes use of
-            latest HTML5 technologies, such as push-state navigation, video, and 3D
-            transformations. OMBU's roles included technical planning, development,
-            infrastructure development, and the migration of Paramount’s extensive movie
-            database from the previous website. Design Credits: <a
+            website, featuring a light design implemented with a single
+            responsive front-end that serves smartphones, tablets, and desktop
+            users. The site makes use of HTML5 technologies such as push-state
+            navigation, video, and 3D transformations. OMBU's roles spread
+            through technical planning, platform development, infrastructure
+            development, and the migration of Paramount’s extensive movie
+            database from the previous website. Design by <a
             href='http://www.sisumedia.com'>Sisu</a>.</p>
             """,
             features=[
@@ -129,16 +132,12 @@ href='http://www.ankrommoisan.com'>Ankrom Moisan</a>.  </p>
             {{ project(
             title='Stand For Children',
             description="""
-            <p>Stand for Children is a non-partisan advocate for
-            American children’s education, headquartered in Portland, OR. Stand for
-            Children reached out to OMBU to help them develop a Web platform that would
-            rise up to the organization’s complex needs, and to the gravity of it's
-            mission.
-Design Credits: <a href='http://www.swiftcollective.com/'>Swift Collective</a>
-</p>
-            <p> Our team architected and implemented a Drupal platform that not
-            only matched the requirements at the time but has been evolving since day one.
-            Key features of our solution include: </p>
+            <p>Stand for Children is a non-partisan advocate for American
+            children's education, headquartered in Portland, OR. Stand reached
+            out to OMBU to help them design and develop a Drupal Web platform
+            that could support the organization's current needs, and serve as a
+            springboard for implementing and ambitious technical multi-year
+            roadmap. Design by <a href='http://www.swiftcollective.com/'>Swift Collective</a>.</p>
             """,
             features=[
                 {

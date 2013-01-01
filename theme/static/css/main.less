@@ -35,9 +35,8 @@
 @beige: hsl(60, 8%, 77%);
 
 // Other vars
-@fontFamily: 'AvenirLTStd-Book', 'OpenSansRegular', Arial, sans;
-@fontFamilyLight: 'AvenirLTStd-Light', 'OpenSansLight', Arial, sans;
-@fontFamilyNative: 'Helvetica Neue', Helvetica, Arial, sans;
+@fontFamily: 'AvenirLTStd-Book', Arial, sans;
+@fontFamilyLight: 'AvenirLTStd-Light', Arial, sans;
 @radius: 4px;
 @padding-left: 2em; /* padding from the left of the viewport for certain
                        elements such as logo */
@@ -48,29 +47,6 @@
 @linkColor: @blue;
 @baseFontSize: 14px;
 
-// Embeded fonts
-@font-face {
-    font-family: 'OpenSansRegular';
-    src: url('../font/OpenSans-Regular-webfont.eot');
-    src: url('../font/OpenSans-Regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../font/OpenSans-Regular-webfont.woff') format('woff'),
-         url('../font/OpenSans-Regular-webfont.ttf') format('truetype'),
-         url('../font/OpenSans-Regular-webfont.svg#OpenSansRegular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'OpenSansLight';
-    src: url('../font/OpenSans-Light-webfont.eot');
-    src: url('../font/OpenSans-Light-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../font/OpenSans-Light-webfont.woff') format('woff'),
-         url('../font/OpenSans-Light-webfont.ttf') format('truetype'),
-         url('../font/OpenSans-Light-webfont.svg#OpenSansLight') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
 // Mixins
 .nav-pills-arrow-right li {
     @size: 23px;
@@ -80,7 +56,7 @@
     background: @beige;
     border: 0 !important;
     &:after, &:before {
-        left: 100%;
+        right: 100%;
         border: solid transparent;
         content: " ";
         height: 0;
@@ -273,26 +249,45 @@ p {
 
 #work {
     padding: 0 @padding-left;
-    box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.3);
+    a { color: @orange; }
     .slide {
-        border-radius: @radius;
-        .box-shadow(2px 2px 9px rgba(0,0,0,0.5));
-        margin-top: 1.5em;
+        .box-shadow(0px 1px 4px rgba(0,0,0,0.4));
+        margin-top: 0.8em;
     }
-    .nav-pills {
-        border-color: @grayLight;
-        border-bottom: 1px solid @grayLight;
-        > li > a {
-            color: @black;
+    .highlights .nav-pills {
+        border: none;
+        > li {
+            > a {
+                border: none;
+                color: @black;
+                text-transform: none;
+                font-weight: normal;
+                font-size: 0.9em;
+                padding-left: 8px;
+            }
+            &:first-child > a {
+            }
         }
         > .active {
-            border-color: @grayLight;
-        }
-        > .active > a {
-            color: @orange;
+            background: @beige;
+            border: none;
+            position: relative;
+            &:after {
+                @size: 15px;
+                @width-multiplier: 0.8;
+                top: 50%;
+                margin-top: -@size;
+                left: -@size*@width-multiplier;
+                content:"";
+                position: absolute;
+                width: 0px;
+                height: 0px;
+                border-style: solid;
+                border-width: @size @size*@width-multiplier @size 0;
+                border-color: transparent @beige transparent transparent;
+            }
         }
     }
-
 }
 
 #skill {
@@ -305,11 +300,13 @@ p {
     .skill {
         padding: 1em 2em 2em 2em;
         min-height: 200px;
+        a {
+            color: @yellow;
+        }
     }
 }
 
 #team {
-    min-height: 0;
     background: url(../img/wood-grain.jpg) repeat;
     > .row-fluid:first-child {
         color: @white;
@@ -334,6 +331,7 @@ p {
         }
     }
     .bio {
+        a { color: @yellow; }
         .box-sizing(border-box);
         .transition(height .1s ease-in);
         background-color: hsla(0,0%,0%,0.6);
@@ -380,10 +378,7 @@ p {
         color: @white;
     }
     .map {
-        margin: 2em 0;
         border: 4px solid @white;
-        border-radius: @radius;
-        box-shadow: 4px 4px 4px rgba(0,0,0,.5);
     }
     .btn {
         background-color: darken(@blue, 25%);
@@ -506,5 +501,4 @@ p {
             display: none;
         }
     }
-
 }
