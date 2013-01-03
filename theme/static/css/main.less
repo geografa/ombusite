@@ -154,28 +154,21 @@ p {
 }
 
 .nav-pills {
-    border-bottom: 1px solid;
     > li > a {
         font-weight: bold;
         font-size: 1.1em;
         letter-spacing: 1px;
         text-transform: uppercase;
         color: darken(@red, 30%);
-        padding-right: 18px;
-    }
-    > li:first-child > a {
-        padding-left: 0;
-    }
-    > li:last-child > a {
-        padding-right: 0;
-    }
-    > .active {
-        border-bottom: 5px solid;
+        border-bottom: 5px solid transparent;
+        .border-radius(0);
     }
     > .active > a,
     > .active > a:hover,
     > li > a:hover {
-        background-color: transparent;
+        // color: darken(@red, 30%);
+        // background-color: transparent;
+        // border-bottom: 5px solid;
     }
 }
 
@@ -186,7 +179,7 @@ p {
 }
 
 .hero-unit {
-    border-radius: none;
+    .border-radius(0);
     padding: 0;
 }
 
@@ -199,6 +192,7 @@ p {
 }
 
 .pane {
+    padding: 0 @padding-left;
     .box-sizing(border-box);
     min-height: 100%;
     position: relative;
@@ -213,13 +207,13 @@ p {
 #home {
     min-height: 85%;
 
-    background-image: url(../img/photo-bg-5.jpg);
+    background: transparent url(../img/photo-bg-5.jpg) top center;
 
     .hero {
         background: hsla(0, 0%, 0%, 0.3) url(../img/home/portland.png) 34px 41px no-repeat;
         .box-sizing(border-box);
-        width: 590px;
-        margin: 12em auto 0 13em;
+        max-width: 590px;
+        margin: 12em auto 0;
         color: @white;
         border: 9px solid;
         padding: 0 2em 0 135px;
@@ -238,8 +232,17 @@ p {
 }
 
 #work {
-    padding: 0 @padding-left;
-    a { color: @orange; }
+    a {
+        color: @orange;
+    }
+    .nav-pills {
+        > .active > a,
+        > .active > a:hover,
+        > li > a:hover {
+            color: @white;
+            background-color: @orange;
+        }
+    }
     .slide {
         .box-shadow(0px 1px 4px rgba(0,0,0,0.4));
         margin-top: 0.8em;
@@ -284,21 +287,30 @@ p {
     background-color: @red;
     color: @white;
     .hero-unit {
-        padding: 0 2em 0 1em;
         font-family: @fontFamilyLight;
     }
     .skill {
-        padding: 1em 2em 2em 2em;
         min-height: 200px;
         a {
             color: @yellow;
         }
     }
+    .nav-pills {
+        > .active > a,
+        > .active > a:hover,
+        > li > a:hover {
+            color: darken(@red, 30%);
+            background-color: @white;
+        }
+    }
 }
 
 #team {
+    padding: 0;
+    min-height: 0;
     background: url(../img/wood-grain.jpg) repeat;
-    > .row-fluid:first-child {
+    .hero-unit {
+        padding: 0 1.5em;
         color: @white;
         font-family: @fontFamilyLight;
     }
@@ -381,7 +393,6 @@ p {
     }
 }
 
-
 /********************************************************************************
 * Our overrides to Bootstrap responsive styles
 ********************************************************************************/
@@ -392,6 +403,30 @@ p {
             text-transform: uppercase;
             border-radius: 5px 5px 0px 0px;
             margin-bottom: 0;
+        }
+    }
+}
+
+@media (min-width: 979px) {
+    .nav-pills {
+        border-bottom: 1px solid;
+        > li > a {
+            padding-right: 18px;
+        }
+        > li:first-child > a {
+            padding-left: 0;
+        }
+        > li:last-child > a {
+            padding-right: 0;
+        }
+        > .active {
+            border-bottom: 5px solid;
+        }
+        > .active > a,
+        > .active > a:hover,
+        > li > a:hover {
+            color: inherit !important;
+            background-color: transparent !important;
         }
     }
 }
@@ -430,14 +465,13 @@ p {
 
     .nav-pills li {
         float: none;
+        &:first-child a {
+            padding-left: 12px;
+        }
     }
 
     .pane {
         min-height: 0;
-
-        h1 {
-            margin-top: 20px;
-        }
 
         ul.projects {
             margin-top: 25px;
