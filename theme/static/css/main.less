@@ -35,8 +35,8 @@
 @beige: hsl(60, 8%, 77%);
 
 // Other vars
-@fontFamily: 'AvenirLTStd-Book', Arial, sans;
-@fontFamilyLight: 'AvenirLTStd-Light', Arial, sans;
+@fontFamily: 'Book', Arial, sans;
+@fontFamilyLight: 'Light', Arial, sans;
 @radius: 4px;
 @padding-left: 2em; /* padding from the left of the viewport for certain
                        elements such as logo */
@@ -47,39 +47,29 @@
 @linkColor: @blue;
 @baseFontSize: 14px;
 
-// Mixins
-.nav-pills-arrow-right li {
-    @size: 23px;
-    @multiplier: 1.05;
-    height: @size * 2;
-    position: relative;
-    background: @beige;
-    border: 0 !important;
-    &:after, &:before {
-        right: 100%;
-        border: solid transparent;
-        content: " ";
-        height: 0;
-        width: 0;
-        position: absolute;
-        pointer-events: none;
-    }
-    &:after {
-        border-color: rgba(136, 183, 213, 0);
-        border-left-color: @beige;
-        border-width: @size;
-        top: 50%;
-        margin-top: -@size;
-    }
-    &:before {
-        border-color: rgba(194, 225, 245, 0);
-        border-left-color: @beige;
-        border-width: @size * @multiplier;
-        top: 50%;
-        margin-top: @size * @multiplier;
-    }
+// Embeded fonts
+@font-face {
+    font-family: 'Light';
+    src: url('../font/light.eot');
+    src: url('../font/light.eot?#iefix') format('embedded-opentype'),
+         url('../font/light.woff') format('woff'),
+         url('../font/light.ttf') format('truetype'),
+         url('../font/light.svg#Light') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Book';
+    src: url('../font/book.eot');
+    src: url('../font/book.eot?#iefix') format('embedded-opentype'),
+         url('../font/book.woff') format('woff'),
+         url('../font/book.ttf') format('truetype'),
+         url('../font/book.svg#Book') format('svg');
+    font-weight: normal;
+    font-style: normal;
 }
 
+// Mixins
 html, body, .container-fluid { height: 100% }
 
 body {
