@@ -24,11 +24,10 @@ def push(ref='origin/master'):
     from fabric.api import local, run, cd
     from fabric.contrib.project import rsync_project
     local('pelican -s %s -d' % env.config_file)
-    with cd(env.host_site_path):
-        run('rm -rf public && mkdir public')
     rsync_project(
         remote_dir=env.host_site_path + '/public',
-        local_dir='output/'
+        local_dir='output/',
+        delete=True
     )
     with cd(env.host_site_path):
         run('chown -R ombu:www-data public && chmod -R 02750 public')

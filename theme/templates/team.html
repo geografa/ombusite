@@ -1,5 +1,5 @@
 {% macro member(name, title, bio, photos) %}
-<div class="team-member">
+<div class="team-member {{ 'hidden-phone' if name == 'Current Opportunities' }}">
     <div class="photos">
         {# {% for photo in photos %} #}
         <img class="lazy" src="{{ 'theme/img/grey.gif' | cdn }}" data-original="{{ ('theme/img/team/' + photos.0 ) | cdn }}" width="100%">

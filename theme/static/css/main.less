@@ -373,14 +373,15 @@ p {
     }
     .address {
         margin-top: 50px;
-        margin-bottom: 50px;
         .box-shadow(3px 0px 9px hsla(0, 0%, 0%, 0.3));
         background-color: darken(@blue, 15%);
         padding: 0 3em;
         color: @white;
     }
     .map {
-        border: 4px solid @white;
+        background: transparent url(../img/map.png) center center;
+        border: 5px solid @white;
+        height: 18em;
     }
     .btn {
         background-color: darken(@blue, 25%);
@@ -485,13 +486,10 @@ p {
     }
 
     #contact {
-        .address {
-            position: static;
+        .map {
+            height: 15em;
         }
 
-        .map {
-            max-width: 60%;
-        }
         h1 {
             margin: 0;
             opacity: 0;
@@ -503,6 +501,14 @@ p {
     }
     #team {
         .team-member {
+            width: 33%;
+            &:nth-of-type(3n+1) {
+                width: 34%;
+                clear:left;
+            }
+            &:nth-of-type(4n+1) {
+                clear: none;
+            }
             &:hover .bio {
                 height: auto;
             }
