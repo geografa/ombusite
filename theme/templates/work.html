@@ -49,10 +49,11 @@
                 <h1>Work</h1>
                 <ul class="projects nav nav-pills">
                     <li class="active">
-                        <a data-toggle="tab" href="#amaa">Ankrom Moisan</a>
+                        <a data-toggle="tab" href="#paramount">Paramount
+                            Pictures</a>
                     </li>
                     <li>
-                        <a data-toggle="tab" href="#paramount">Paramount</a>
+                        <a data-toggle="tab" href="#amaa">Ankrom Moisan</a>
                     </li>
                     <li>
                         <a data-toggle="tab" href="#stand">Stand for
@@ -65,7 +66,40 @@
 
     <div class="row-fluid">
 
-        <div id="amaa" class="tab active"> 
+        <div id="paramount" class="tab active">
+            {{ project(
+            title='Paramount Pictures',
+            description="""
+            <p>
+            OMBU had the privilege to develop Paramount Pictures current
+            website, featuring a light design implemented with a single
+            responsive front-end that serves smartphones, tablets, and desktop
+            users. The site makes use of HTML5 technologies such as push-state
+            navigation, video, and 3D transformations. OMBU's roles spread
+            through technical planning, platform development, infrastructure
+            development, and the migration of Paramount’s extensive movie
+            database from the previous website. Design by <a
+            href='http://www.sisumedia.com'>Sisu</a>.</p>
+            """,
+            features=[
+                {
+                'caption':'Mobile-friendly frontend in HTML5',
+                'image':'pmount-1.png',
+                },
+                {
+                'caption':'Live-search movie grid, driven by Apache Solr',
+                'image':'pmount-2.png',
+                },
+                {
+                'caption':'HTML5 video with social features',
+                'image':'pmount-3.png',
+                },
+            ])
+            }}
+
+        </div>
+
+        <div id="amaa" class="tab">
             {{ project(
             title='Ankron Moisan Architects',
             description="""
@@ -96,39 +130,8 @@
             }}
         </div>
 
-        <div id="paramount" class="tab"> 
-            {{ project(
-            title='Paramount Pictures',
-            description="""
-            <p> 
-            OMBU had the privilege to develop Paramount Pictures current
-            website, featuring a light design implemented with a single
-            responsive front-end that serves smartphones, tablets, and desktop
-            users. The site makes use of HTML5 technologies such as push-state
-            navigation, video, and 3D transformations. OMBU's roles spread
-            through technical planning, platform development, infrastructure
-            development, and the migration of Paramount’s extensive movie
-            database from the previous website. Design by <a
-            href='http://www.sisumedia.com'>Sisu</a>.</p>
-            """,
-            features=[
-                {
-                'caption':'Mobile-friendly frontend in HTML5',
-                'image':'pmount-1.png',
-                },
-                {
-                'caption':'Live-search movie grid, driven by Apache Solr',
-                'image':'pmount-2.png',
-                },
-                {
-                'caption':'HTML5 video with social features',
-                'image':'pmount-3.png',
-                },
-            ])
-            }} 
-        </div>
 
-        <div id="stand" class="tab"> 
+        <div id="stand" class="tab">
             {{ project(
             title='Stand For Children',
             description="""
