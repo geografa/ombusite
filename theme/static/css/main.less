@@ -185,6 +185,10 @@ p {
 
 .tab {
     display: none;
+    .lead {
+        font-size: 18px;
+        line-height: 150%;
+    }
 }
 
 .tab.active {
@@ -213,7 +217,8 @@ p {
         background: hsla(0, 0%, 0%, 0.3) url(../img/home/portland.png) 34px 41px no-repeat;
         .box-sizing(border-box);
         max-width: 590px;
-        margin: 12em auto 0;
+        margin-top: 12em;
+        // margin: 12em auto 0;
         color: @white;
         border: 9px solid;
         padding: 0 2em 0 135px;
@@ -228,8 +233,16 @@ p {
     }
 
     p {
-        font-size: 180%;
+        font-size: 150%;
         line-height: 130%%;
+    }
+
+    a {
+        color: @white;
+        border-bottom: 2px solid @red;
+        &:hover {
+            text-decoration: none;
+        }
     }
 }
 
@@ -384,6 +397,7 @@ p {
         background: transparent url(../img/map.png) center center;
         border: 5px solid @white;
         height: 18em;
+        margin-bottom: 2em;
     }
     .btn {
         background-color: darken(@blue, 25%);
