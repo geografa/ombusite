@@ -25,7 +25,11 @@ $.fn.scrollspy.defaults.offset = 40;
 jQuery(document).ready(function($) {
 
     // Lazy image loading
-    $('img.lazy').lazyload({effect: 'fadeIn'});
+    $('img.lazy').lazyload({
+        effect: 'fadeIn',
+        threshold: 200,
+        skip_invisible: false
+    });
     $(window).on('slid', function(e) { $(window).resize(); });
     $('a[data-toggle="tab"]').on('shown', function(e) { $(window).resize(); });
 
