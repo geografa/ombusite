@@ -35,8 +35,7 @@
 @beige: hsl(60, 8%, 77%);
 
 // Other vars
-@fontFamily: 'Book', Arial, sans;
-@fontFamilyLight: 'Light', Arial, sans;
+@fontFamily: "proxima-nova", Arial, sans-serif;
 @radius: 4px;
 @padding-left: 2em; /* padding from the left of the viewport for certain
                        elements such as logo */
@@ -163,13 +162,6 @@ p {
         border-bottom: 5px solid transparent;
         .border-radius(0);
     }
-    > .active > a,
-    > .active > a:hover,
-    > li > a:hover {
-        // color: darken(@red, 30%);
-        // background-color: transparent;
-        // border-bottom: 5px solid;
-    }
 }
 
 .navbar-inner {
@@ -218,7 +210,7 @@ p {
         .box-sizing(border-box);
         max-width: 650px;
         margin-top: 12em;
-        // margin: 12em auto 0;
+        margin-bottom: 2em;
         color: @white;
         border: 9px solid;
         padding: 0 2em 0 135px;
@@ -227,13 +219,11 @@ p {
     }
 
     h1 {
-        font-family: "Helvetica Neue",Helvetica,Arial,Verdana,Sans-serif;
-        font-weight: bold;
         font-size: 350%;
     }
 
     p {
-        font-size: 150%;
+        font-size: 140%;
         line-height: 130%%;
     }
 
@@ -262,37 +252,15 @@ p {
         .box-shadow(0px 1px 4px rgba(0,0,0,0.4));
         margin-top: 0.8em;
     }
-    .highlights .nav-pills {
+   .highlights .nav-pills {
         border: none;
         > li {
             > a {
                 border: none;
-                color: @black;
                 text-transform: none;
                 font-weight: normal;
                 font-size: 0.9em;
                 padding-left: 8px;
-            }
-            &:first-child > a {
-            }
-        }
-        > .active {
-            background: @beige;
-            border: none;
-            position: relative;
-            &:after {
-                @size: 15px;
-                @width-multiplier: 0.8;
-                top: 50%;
-                margin-top: -@size;
-                left: -@size*@width-multiplier;
-                content:"";
-                position: absolute;
-                width: 0px;
-                height: 0px;
-                border-style: solid;
-                border-width: @size @size*@width-multiplier @size 0;
-                border-color: transparent @beige transparent transparent;
             }
         }
     }
@@ -302,7 +270,7 @@ p {
     background-color: @red;
     color: @white;
     .hero-unit {
-        font-family: @fontFamilyLight;
+        font-weight: light;
     }
     .skill {
         min-height: 200px;
@@ -322,12 +290,12 @@ p {
 
 #team {
     padding: 0;
-    min-height: 0;
+    // min-height: 0;
     background: url(../img/wood-grain.jpg) repeat;
     .hero-unit {
         padding: 0 1.5em;
         color: @white;
-        font-family: @fontFamilyLight;
+        font-weight: light;
     }
     .team-members {
         border-top: 0.5em solid @blueLight;
@@ -446,6 +414,32 @@ p {
             background-color: transparent !important;
         }
     }
+   .highlights .nav-pills {
+        > li {
+            > a {
+                color: @black;
+            }
+        }
+        > .active {
+            background: @beige;
+            border: none;
+            position: relative;
+            &:after {
+                @size: 15px;
+                @width-multiplier: 0.8;
+                top: 50%;
+                margin-top: -@size;
+                left: -@size*@width-multiplier;
+                content:"";
+                position: absolute;
+                width: 0px;
+                height: 0px;
+                border-style: solid;
+                border-width: @size @size*@width-multiplier @size 0;
+                border-color: transparent @beige transparent transparent;
+            }
+        }
+    }
 }
 
 @media (max-width: 979px) {
@@ -460,6 +454,9 @@ p {
     .navbar-fixed-bottom {
         position: fixed;
     }
+        .nav-pills > li > a {
+            border-bottom: 0;
+        }
 }
 
 @media (min-width: 768px) and (max-width: 979px) {
